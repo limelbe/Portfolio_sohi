@@ -1,0 +1,61 @@
+@charset "utf-8";
+@font-face {
+    font-family: Montserrat;
+    font-weight: 200;
+    src: url("../font/Montserrat-Thin.eot");
+    src: local("※"),
+        url("../font/Montserrat-Thin.woff") format("woff"),
+        url("../font/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+    font-family: Montserrat;
+    font-weight: 300;
+    src: url("../font/Montserrat-Light.eot");
+    src: local("※"),
+        url("../font/Montserrat-Light.woff") format("woff"),
+        url("../font/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+    font-family: Montserrat;
+    font-weight: 400;
+    src: url("../font/Montserrat-Regular.eot");
+    src: local("※"),
+        url("../font/Montserrat-Regular.woff") format("woff"),
+        url("../font/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: Montserrat;
+    font-weight: 500;
+    src: url("../font/Montserrat-Medium.eot");
+    src: local("※"),
+        url("../font/Montserrat-Medium.woff") format("woff"),
+        url("../font/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: Montserrat;
+    font-weight: 700;
+    src: url("../font/Montserrat-Bold.eot");
+    src: local("※"),
+        url("../font/Montserrat-Bold.woff") format("woff"),
+        url("../font/Montserrat-Bold.ttf") format("truetype");
+}
+
+/* reset */
+body, h1, h2, h3, h4, h5 , h6, ul, button, p, a, strong, th, td {margin: 0; padding: 0;}
+a:link, a:visited, a:hover, a:active {text-decoration: none; color: inherit;}
+ul, li {list-style: none;}
+button {background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; line-height: inherit;}
+header, nav, section, article {display: block;}
+body {color: #fff; font-family: Montserrat; font-weight: 300; font-size: 16px; line-height: 1; box-sizing: border-box;}
+h1, h2, h3, h4, h5 , h6 {font-size: inherit; font-weight: 300;}
+strong {font-style: normal; font-weight: 300;}
+img {vertical-align: top; border: none;}
+
+/* common class */
+.f_l {float: left;}
+.f_r {float: right;}
+.p_a {position: absolute;}
+.p_r {position: relative;}
+.clearfix:after {content: ''; display: block; clear:both;}
+.blind {position: absolute; top: 0; left: -9999px; font-size: 0; line-height: 0; width: 1px; height: 1px; overflow: hidden;}
+.area {width: 72.9vw; height: 100%; margin: 0 auto;}
