@@ -114,7 +114,7 @@ $(document).ready(function(){
     //act2
     function act2On(){
         $('#act1').removeClass('active');
-        $edith.addClass('onAct2').stop().animate({left: '24%'}, 2500, "easeInOutExpo", function(){
+        $edith.addClass('onAct2').stop().animate({left: '24%', opacity: 1}, 2500, "easeInOutExpo", function(){
             $('#act2').addClass('active').animate({opacity: 1}, function(){
                 seeWhat();
             });
@@ -125,9 +125,9 @@ $(document).ready(function(){
         $('#act2 .txt5').css('display', 'block').animate({opacity: 1}, 900);
         setTimeout(function(){
             $('#act2 button').each(function(idx){
-                $(this).css('display', 'block').stop().delay(950*idx).animate({right: 80}, 700).animate({opacity: 1}, 700);
+                $(this).css('display', 'block').stop().delay(800*idx).animate({right: 80}, 700).animate({opacity: 1}, 700);
             });
-        }, 900);
+        }, 500);
     }
 
     //act2 button
@@ -168,19 +168,24 @@ $(document).ready(function(){
     });
 
     function onAbout(){
-        $edith.addClass('onInfo').stop().animate({left: '76%'}, 1800, "easeInOutBack", function(){
-            $('#about').addClass("active").stop().delay(800).animate({opacity: 1}, 800).find('#info').addClass("active").stop().animate({opacity: 1}, 500).siblings().removeClass("active");
+        if(!$edith.hasClass("active")) $edith.addClass('active').stop().animate({opacity: 1}, 2800, "easeInOutCubic");
+
+        $edith.addClass('onInfo').stop().animate({left: '76%', opacity: 1}, 1800, "easeInOutBack", function(){
+            $('#about').addClass("active").stop().animate({opacity: 1}, 800).find('#info').addClass("active").stop().animate({opacity: 1}, 500).siblings().removeClass("active");
         });
     }
 
     function onProject(){
-        $('#project').addClass("active").stop().delay(800).animate({opacity: 1}, 800);
-        $edith.stop().delay(1000).animate({opacity: 0}, 200, function(){
+        $edith.stop().animate({opacity: 0}, 200, function(){
             $(this).removeClass('active');
         });
+
+        $('#project').addClass("active").stop().delay(800).animate({opacity: 1}, 800);
     }
 
     function onContact(){
+        if(!$edith.hasClass("active")) $edith.addClass('active').stop().delay(500).animate({opacity: 1}, 2800, "easeInOutCubic");
+
         $('#contact').addClass("active").stop().delay(800).animate({opacity: 1}, 800);
     }
 
@@ -494,5 +499,49 @@ $(document).ready(function(){
     //     TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], y: artiT[i]});
 
     // });
+
+
+
+
+    //gnb
+    $('#container #btnOpen').on('click', function(){
+        $('#gnb').addClass('active').css('opacity', 1);
+
+    });
+
+    $('#gnb ul li a').on('click', function(e){
+        e.preventDefault();
+
+        $edith.removeClass();
+
+        $('#gnb').removeClass('active');
+        $('#edith, #main, #act1, #act2, #about, #contact, #project, #info, #elsewhere, #skill, #person').removeClass('active').css('opacity', 0);
+
+        var gnbIdx = $(this).parent().index();
+
+        switch(gnbIdx) {
+            case 0:
+                $('#main, #edith').addClass('active').stop().animate({opacity: 1}, 2800, "easeInOutCubic");
+                act2On();
+                break;
+            case 1:
+                pagiIdx = 0;
+                indiL = 1008;
+                $toolTip.css({left: toolTip});
+                $('#pagination .indicator').css({left: indiL, right: indiR});
+                $pagi.eq(0).addClass('on').siblings().removeClass('on');
+                onAbout();
+                break;
+            case 2:
+                onProject();
+                break;
+            case 3:
+                onContact();
+                break;
+        }
+
+    });
+
+
 
 });

@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* body */
-body {position: relative; background: linear-gradient(-135deg, #C56CD6 0%,#3425AF 100%); width: 100%; height: 100vh; overflow: hidden;}
+body {position: relative; background-image: linear-gradient(-135deg, #C56CD6 0%,#3425AF 100%); width: 100%; height: 100vh; overflow: hidden;}
 section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;}
 
 /*========  edith ======== */
@@ -255,10 +255,15 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 }
 
 
-/*
-@keyframe btnOp {
-    100% {opacity: 1;}
-} */
+/* ========== #gnb ============== */
+#container #btnOpen {position: fixed; top: 20px; right: 20px; z-index: 250;}
+#gnb {position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-size: 90px; font-weight: 700; background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);; display: flex; align-items: center; justify-content: center; z-index: 200;}
+#gnb .gnb_bg {}
+#gnb ul {text-align: center;}
+#gnb ul li {line-height: 1.7;}
+#gnb ul li a {background-image: linear-gradient(135deg, #5c77f1 0%, #7840b1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+
+
 
 /* ======== #about ============== */
 /* pagination */
@@ -418,10 +423,12 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 
 
-#edith, #main, #act1, #act2, #about, #contact, #gnb, #project {display: none;}
-#edith.active, #main.active, #act1.active, #act2.active, #about.active, #project.active, #contact.active, #gnb.active {display: block; opacity: 0;}
+#edith, #main, #act1, #act2, #about, #contact, #project, #gnb {display: none;}
+#edith.active, #main.active, #act1.active, #act2.active, #about.active, #project.active, #contact.active {display: block; opacity: 0;}
+#gnb.active {display: flex; opacity: 0;}
 
-#info.active, #skill.active, #person.active, #elsewhere.active {z-index: 10; display: block; opacity: 0;}
+
 #info, #elsewhere, #skill, #person {z-index: -1; display: none;}
+#info.active, #skill.active, #person.active, #elsewhere.active {z-index: 10; display: block; opacity: 0;}
 
 
