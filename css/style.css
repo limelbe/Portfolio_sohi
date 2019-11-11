@@ -372,13 +372,15 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 /* person */
 #person .area {display: flex; justify-content: center; align-items: center;}
-#person .txt_box {position: relative; width: 800px; text-align: center;}
+#person .txt_box {position: relative; width: 800px;}
 #person .txt_box:before, #person .txt_box:after {position: absolute; top: -5px; font-size: 60px; font-weight: 500;}
 #person .txt_box:before {content: '['; left: 0;}
 #person .txt_box:after {content: ']'; right: 0;}
-#person .txt_box .fixed_txt, #person .txt_box .txt_list, #person .txt_box .txt_list li 
-{display: inline; font-size: 60px;}
-#person .txt_box .txt_list {font-weight: 700; padding-left: 40px;}
+#person .txt_box .fixed_txt, #person .txt_box .txt_list, #person .txt_box .txt_list li {display: inline; font-size: 60px;}
+#person .txt_box .fixed_txt {margin-left: 86px;}
+#person .txt_box .txt_list {font-weight: 700; padding-left: 52px;}
+#person .txt_box .txt_list li {position: absolute; opacity: 0;}
+#person .txt_box .txt_list li:nth-child(1) {opacity: 1;}
 
 /* elsewhere */
 #elsewhere .area {position: relative;}
@@ -401,17 +403,246 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 /* ======== #project ======== */
 #project {perspective: 5600px;}
 #project .wrap {position: absolute; top: 640px; left: 0; width: 100%; height: 100%;}
-#project article {position: absolute; left: 50%; transform: translate(-50%, 0) scale(0.96); width: 100%; height: 100%;}
-#project article .detail_area {margin: 0 auto; width: 1680px; height: 100%;}
+#project article {position: absolute; left: 50%; width: 100%; height: 100%; cursor: pointer; background: no-repeat center top; background-size: cover; box-shadow: 0 0 40px 10px rgba(0,0,0,0.15);}
 
-#project #normal {background: #fff; z-index: 16;}
-#project #portfolio {background: orange; z-index: 14;}
-#project #megabox {background: yellow; z-index: 12;}
-#project #responsive {background: green; z-index: 10;}
-#project #standard {background: aqua; z-index: 8;}
-#project #artmining {background: pink; z-index: 6;}
-#project #huvis {background: blue; z-index: 4;}
-#project #hanwhalife {background: purple; z-index: 2;}
+#project #normal {background-image: url(../images/d_normal.jpg); z-index: 18;}
+#project #portfolio {background-image: url(../images/d_portfolio.jpg); z-index: 16;}
+#project #megabox {background-image: url(../images/d_megabox.jpg); z-index: 14;}
+#project #responsive {background-image: url(../images/d_responsive.jpg); z-index: 12;}
+#project #standard {background-image: url(../images/d_standard.jpg); z-index: 10;}
+#project #artmining {background-image: url(../images/d_artmining.jpg); z-index: 8;}
+#project #huvis {background-image: url(../images/d_huvis.jpg); z-index: 6;}
+#project #hanwhalife {background-image: url(../images/d_hanwha.jpg); z-index: 4;}
+#project #nvisana {background-image: url(../images/d_nvisana.jpg); z-index: 2;}
+
+/* project detail common */
+#project #project_detail {position: absolute; top: 50%; left: 50%; width: 100%; height: 100vh; transform: translate(-50%,-50%) scale(0.4); opacity: 0; transition: all 0.8s ease; z-index: -1;}
+#project #project_detail.on {transform: translate(-50%,-50%) scale(1); opacity: 1; z-index: 50;}
+
+#project_detail > div {position: relative; width: 100%; height: 100vh; background: no-repeat 24px 30px; background-image: url(../images/proj_logo.png_w.png);}
+#project_detail .d_normal, #project_detail .d_standard, #project_detail .d_artmining {background-image: url(../images/proj_logo.png);}
+#project_detail > div .btn_projmenu, #project_detail > div img, #project_detail > div .summary, #project_detail > div .btn_more {position: absolute;}
+
+#project_detail > div .area {position: relative; width: 1700px; height: 100%; margin: 0 auto;}
+#project_detail > div .btn_projmenu {right: 60px; bottom: 50px; width: 50px; height: 25px; z-index: 200; background: url(../images/menu_w.png) no-repeat center center;}
+
+#project_detail .d_normal .btn_projmenu, #project_detail .d_standard .btn_projmenu, #project_detail .d_artmining .btn_projmenu {background-image: url(../images/menu_b.png);}
+
+#project_detail > div .title {position: relative; padding-top: 110px;}
+#project_detail > div .title h2 {padding-top: 82px; font-size: 80px;}
+#project_detail > div .title p {position: absolute; top: 110px; left: 0; font-size: 22px; line-height: 22px;}
+#project_detail > div .title ul.tag li {display: inline-block; font-size: 16px; padding: 4px; margin: 32px 2px 0;}
+
+#project_detail > div .title.right {text-align: right;}
+#project_detail > div .title.right p {left: auto; right: 0;}
+
+#project_detail > div .summary {font-size: 22px;}
+#project_detail > div .summary1 > li {padding: 10px 0;}
+#project_detail > div .summary1::before {content:''; position: absolute; top: -24px; left: 0; width: 22px; height: 1px; background: #fff;}
+#project_detail .d_normal .summary1::before, #project_detail .d_standard .summary1::before, #project_detail .d_artmining .summary1::before {background: #000;}
+
+#project_detail > div .summary2 > li {float: left;}
+#project_detail > div .summary2 > li + li {margin-left: 60px;}
+#project_detail > div .summary2 > li > ul {padding-left: 38px;}
+
+#project_detail > div .summary2 > li .palette {margin-left: 40px;}
+#project_detail > div .summary2 > li .palette li {position: relative; display: inline-block; width: 130px; text-align: center; padding-top: 114px; margin-top: 30px;}
+#project_detail > div .summary2 > li .palette li span {font-size: 16px;}
+#project_detail > div .summary2 > li .palette li span::before {content: ''; position: absolute; top: 0; left: 50%; margin-left: -50px; width: 100px; height: 100px; border-radius: 50%;}
+#project_detail > div .summary2 > li .font li {position: relative; display: inline-block; width: 180px; text-align: center; padding-top: 90px; margin-top: 36px;}
+#project_detail > di .summary2 > li .font li span {font-size: 24px;}
+#project_detail > div .summary2 > li .font li span::before {position: absolute; top: 0; left: 50%; margin-left: -80px; width: 160px; text-align: center; font-size: 60px;}
+
+#project_detail > div .btn_more a {float: left; display: block; width: 180px; height: 56px; line-height: 56px; font-size: 26px; font-weight: 700; text-align: center; box-sizing: border-box;}
+#project_detail > div .btn_more .git {width: 134px; border: 2px solid; margin-left: 18px;}
+
+/* d_normal */
+#project_detail .d_normal {background-color: #f0f0f0; color: #000; font-family: Lucidab;}
+#project_detail .d_normal .title h2 {font-family: Neo;}
+#project_detail .d_normal .title p {color: #af0000; font-family: GothA1; font-weight: 700;}
+#project_detail .d_normal .title ul.tag li {background: #000; color: #fff; font-family: GothA1;}
+#project_detail .d_normal .area img {top: 0; right: 0; width: 1152px; height: 536px;}
+
+#project_detail .d_normal .summary.summary1 {top: 420px; left: 0;}
+#project_detail .d_normal .summary.summary1 li:nth-child(4) {margin-top: 46px;}
+#project_detail .d_normal .summary.summary2 {top: 600px; left: 550px;}
+
+#project_detail .d_normal .summary2 > li .palette li:nth-child(1) span:before {background: #f0f0f0; border: 1px solid #000;}
+#project_detail .d_normal .summary2 > li .palette li:nth-child(2) span:before {background: #000000;}
+#project_detail .d_normal .summary2 > li .palette li:nth-child(3) span:before {background: #af0000;}
+
+#project_detail .d_normal .summary2 > li .font li:nth-child(1) {font-family: Neo;}
+#project_detail .d_normal .summary2 > li .font li:nth-child(2) {font-family: NotoS;}
+#project_detail .d_normal .summary2 > li .font li:nth-child(3) {font-family: 'Chosunilbo_myungjo';}
+
+#project_detail .d_normal .summary2 > li .font li:nth-child(1) span::before {content: 'ABC';}
+#project_detail .d_normal .summary2 > li .font li:nth-child(2) span::before {content: 'ABC';}
+#project_detail .d_normal .summary2 > li .font li:nth-child(3) span::before {content: '가나다'; top: 6px; font-size: 52px;}
+
+#project_detail .d_normal .btn_more {left: 0; bottom: 60px;}
+#project_detail .d_normal .btn_more .site {background: #000; color: #fff;}
+#project_detail .d_normal .btn_more .git {border-color: #000;}
+
+/* d_portfolio */
+#project_detail .d_portfolio {background-color: #4a30b5;}
+#project_detail .d_portfolio .title ul.tag li {background: #fff; color: #4a30b5; font-weight: 500;}
+#project_detail .d_portfolio .area img {bottom: 60px; left: 0; width: 950px; height: 514px;}
+
+#project_detail .d_portfolio .summary.summary1 {top: 156px; left: 0;}
+#project_detail .d_portfolio .summary.summary1 li:nth-child(4), #project_detail .d_portfolio .summary.summary1 li:nth-child(5) {position: absolute; top: 0; left: 480px; width: 500px;}
+#project_detail .d_portfolio .summary.summary1 li:nth-child(5) {top: 42px;}
+
+#project_detail .d_portfolio .summary.summary2 {top: 590px; left: 978px;}
+#project_detail .d_portfolio .summary2 > li .palette li {width: 170px;}
+#project_detail .d_portfolio .summary2 > li .palette li:nth-child(1) span::before {background: #ffffff;}
+#project_detail .d_portfolio .summary2 > li .palette li:nth-child(2) span::before {background-image: linear-gradient(-135deg, #c56cd6 0%,#3425af 100%); border: 1px solid #fff;}
+
+#project_detail .d_portfolio .summary2 > li .font li:nth-child(1) span::before {content: 'ABC';}
+
+#project_detail .d_portfolio .btn_more {right: 0; top: 415px; font-weight: 500;}
+#project_detail .d_portfolio .btn_more .site {background: #a95fcf;}
+#project_detail .d_portfolio .btn_more .git {border-color: #a95fcf;}
+
+/* d_megabox */
+#project_detail .d_megabox {background-color: #351f66; font-family: NotoS;}
+#project_detail .d_megabox .title {margin-left: 866px;}
+#project_detail .d_megabox .title ul.tag {position: absolute; bottom: 44px; right: 80px;}
+#project_detail .d_megabox .title ul.tag li {background: #2e91ae; color: #fff;}
+#project_detail .d_megabox .area img {bottom: 0; left: 0; width: 827px; height: 811px;}
+
+#project_detail .d_megabox .summary.summary1 {top: 360px; left: 920px;}
+#project_detail .d_megabox .summary.summary2 {top: 610px; left: 920px;}
+
+#project_detail .d_megabox .summary2 > li .palette li:nth-child(1) span:before {background: #fff;}
+#project_detail .d_megabox .summary2 > li .palette li:nth-child(2) span:before {background: #351f66; border: 1px solid #fff;}
+
+#project_detail .d_megabox .summary2 > li .font li:nth-child(1) {font-family: NotoS;}
+#project_detail .d_megabox .summary2 > li .font li:nth-child(1) span::before {content: 'ABC 가나다'; width: 320px;}
+
+#project_detail .d_megabox .btn_more {right: 0; top:470px;}
+#project_detail .d_megabox .btn_more .site {background: #2e91ae;}
+#project_detail .d_megabox .btn_more .git {border-color: #2e91ae;}
+
+/* d_responsive */
+#project_detail .d_responsive {background-color: #2498d1; font-family: NanumGo;}
+#project_detail .d_responsive .title ul.tag li {background: #452de5; color: #fff;}
+#project_detail .d_responsive .area img {top: 0; right: -110px; width: 973px; height: 940px;}
+
+#project_detail .d_responsive .summary.summary1 {top: 390px; left: 0;}
+#project_detail .d_responsive .summary.summary2 {top: 560px; left: 0;}
+
+#project_detail .d_responsive .summary.summary1 li:nth-child(4), #project_detail .d_responsive .summary.summary1 li:nth-child(5) {position: absolute; top: 0; left: 420px; width: 500px;}
+#project_detail .d_responsive .summary.summary1 li:nth-child(5) {top: 42px;}
+
+#project_detail .d_responsive .summary2 > li .palette li:nth-child(1) span:before {background: #fff;}
+#project_detail .d_responsive .summary2 > li .palette li:nth-child(2) span:before {background: #2498d1; border: 1px solid #fff;}
+
+#project_detail .d_responsive .summary2 > li .font li:nth-child(1) {font-family: NanumGo;}
+#project_detail .d_responsive .summary2 > li .font li:nth-child(1) span::before {content: 'ABC 가나다'; width: 320px;}
+
+#project_detail .d_responsive .btn_more {bottom: 50px; left: 0;}
+#project_detail .d_responsive .btn_more a {line-height: 52px;}
+#project_detail .d_responsive .btn_more .site {background: #452de5;}
+#project_detail .d_responsive .btn_more .git {border-color: #452de5;}
+
+/* d_standard */
+#project_detail .d_standard {background-color: #5fc0eb; font-family: NanumGo; color: #000;}
+#project_detail .d_standard .title h2 {padding-top: 52px;}
+#project_detail .d_standard .title ul.tag li {background: #2498d1;}
+#project_detail .d_standard .area img {top: 0; left: -110px; width: 1056px; height: 940px;}
+
+#project_detail .d_standard .summary.summary1 {top: 440px; left: 930px;}
+#project_detail .d_standard .summary.summary2 {top: 620px; left: 930px;}
+
+#project_detail .d_standard .summary.summary1 li:nth-child(4), #project_detail .d_standard .summary.summary1 li:nth-child(5) {position: absolute; top: 0; left: 400px; width: 500px;}
+#project_detail .d_standard .summary.summary1 li:nth-child(5) {top: 42px;}
+
+#project_detail .d_standard .summary2 > li .palette li:nth-child(1) span:before {background: #fff;}
+#project_detail .d_standard .summary2 > li .palette li:nth-child(2) span:before {background: #2498d1; border: 1px solid #fff;}
+
+#project_detail .d_standard .summary2 > li .font li:nth-child(1) {font-family: NanumGo;}
+#project_detail .d_standard .summary2 > li .font li:nth-child(1) span::before {content: 'ABC 가나다'; width: 320px;}
+
+#project_detail .d_standard .btn_more {top: 320px; left: 930px;}
+#project_detail .d_standard .btn_more a {line-height: 52px;}
+#project_detail .d_standard .btn_more .site {background: #2498d1; color: #fff;}
+#project_detail .d_standard .btn_more .git {border-color: #2498d1;}
+
+/* d_artmining */
+#project_detail .d_artmining {background-color: #ffb400; font-family: NotoS; color: #000;}
+#project_detail .d_artmining .title h2 {padding-top: 52px;}
+#project_detail .d_artmining .title ul.tag li {background: #000; color: #fff;}
+#project_detail .d_artmining .area img {bottom: 0; left: 0;; width: 1100px; height: 832px;}
+
+#project_detail .d_artmining .summary.summary1 {top: 380px; left: 1140px;}
+#project_detail .d_artmining .summary.summary1 li span {display: inline-block; width: 160px; height: 25px; background: url(../images/star_b.png) left center; margin-bottom: -8px;}
+
+#project_detail .d_artmining .summary.summary2 {top: 540px; left: 1140px;}
+#project_detail .d_artmining .summary2 > li .palette li:nth-child(1) span:before {background: #fff;}
+#project_detail .d_artmining .summary2 > li .palette li:nth-child(2) span:before {background: #000000;}
+#project_detail .d_artmining .summary2 > li .palette li:nth-child(3) span:before {background: #ffb400; border: 1px solid #fff;}
+
+#project_detail .d_artmining .btn_more {bottom: 60px; left: 1140px;}
+#project_detail .d_artmining .btn_more .site {background: #000; color: #fff;}
+#project_detail .d_artmining .btn_more .git {border-color: #000; line-height: 52px;}
+
+/* d_huvis */
+#project_detail .d_huvis {background-color: #00265b; font-family: NotoS;}
+#project_detail .d_huvis .title h2 {padding-top: 52px;}
+#project_detail .d_huvis .title ul.tag li {background: #01b4e5;}
+#project_detail .d_huvis .area img {top: 0; right: 0;; width: 900px; height: 940px;}
+
+#project_detail .d_huvis .summary.summary1 {top: 360px; left: 0;}
+#project_detail .d_huvis .summary.summary1 li span {display: inline-block; width: 160px; height: 25px; background: url(../images/star_w.png) left center; margin-bottom: -8px;}
+#project_detail .d_huvis .summary.summary2 {top: 540px; left: 0;}
+#project_detail .d_huvis .summary2 > li .palette li:nth-child(1) span:before {background: #01b4e5;}
+#project_detail .d_huvis .summary2 > li .palette li:nth-child(2) span:before {background: #00265b; border: 1px solid #fff;}
+
+#project_detail .d_huvis .btn_more {bottom: 60px; left: 420px;}
+#project_detail .d_huvis .btn_more .site {background: #01b4e5;}
+#project_detail .d_huvis .btn_more .git {border-color: #01b4e5; line-height: 52px;}
+
+/* d_hanwhalife */
+#project_detail .d_hanwhalife {background-color: #f15b47; font-family: NotoS;}
+#project_detail .d_hanwhalife .title h2 {padding-top: 52px;}
+#project_detail .d_hanwhalife .title ul.tag li {background: #fff; color: #f15b47;}
+#project_detail .d_hanwhalife .area img {top: 116px; right: -72px; width: 1132px; height: 742px;}
+
+#project_detail .d_hanwhalife .summary.summary1 {top: 360px; left: 0;}
+#project_detail .d_hanwhalife .summary.summary1 li span {display: inline-block; width: 160px; height: 25px; background: url(../images/star_w.png) left center; margin-bottom: -8px;}
+#project_detail .d_hanwhalife .summary.summary2 {top: 520px; left: 0;}
+#project_detail .d_hanwhalife .summary2 > li .palette li:nth-child(1) span:before {background: #ffffff;}
+#project_detail .d_hanwhalife .summary2 > li .palette li:nth-child(2) span:before {background: #f15b47; border: 1px solid #fff;}
+
+#project_detail .d_hanwhalife .btn_more {bottom: 60px; left: 0;}
+#project_detail .d_hanwhalife .btn_more .site {background: #fff; color: #f15b47;}
+#project_detail .d_hanwhalife .btn_more .git {border-color: #fff; line-height: 52px;}
+
+/* d_nvisana */
+#project_detail .d_nvisana {background-color: #59595c; font-family: NotoS;}
+#project_detail .d_nvisana .title {margin-left: 870px;}
+#project_detail .d_nvisana .title h2 {padding-top: 52px;}
+#project_detail .d_nvisana .title ul.tag li {background: #5597d1;}
+#project_detail .d_nvisana .area img {bottom: 0; left: 0; width: 734px; height: 843px;}
+
+#project_detail .d_nvisana .summary.summary1 {top: 400px; left: 870px;}
+#project_detail .d_nvisana .summary.summary1 li span {display: inline-block; width: 160px; height: 25px; background: url(../images/star_w.png) left center; margin-bottom: -8px;}
+
+#project_detail .d_nvisana .btn_more {bottom: 220px; right: 0;}
+#project_detail .d_nvisana .btn_more .site {background: #5597d1;}
+#project_detail .d_nvisana .btn_more .git {border-color: #5597d1; line-height: 52px;}
+
+
+#project_detail .d_normal, #project_detail .d_portfolio, #project_detail .d_megabox, #project_detail .d_responsive, #project_detail .d_standard, #project_detail .d_artmining, #project_detail .d_huvis, #project_detail .d_hanwhalife, #project_detail .d_nvisana {display: none; opacity: 0;}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -423,12 +654,10 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 
 
-#edith, #main, #act1, #act2, #about, #contact, #project, #gnb {display: none;}
+#edith, #main, #act1, #act2, #about, #contact, #gnb, #project {display: none;}
 #edith.active, #main.active, #act1.active, #act2.active, #about.active, #project.active, #contact.active {display: block; opacity: 0;}
 #gnb.active {display: flex; opacity: 0;}
 
 
 #info, #elsewhere, #skill, #person {z-index: -1; display: none;}
 #info.active, #skill.active, #person.active, #elsewhere.active {z-index: 10; display: block; opacity: 0;}
-
-

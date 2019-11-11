@@ -27,6 +27,11 @@ $(document).ready(function(){
 
     $('#fingerPrint').on('mousedown touchstart', holdStart);
     $('#fingerPrint').on('mouseup touchend', hlodEnd);
+    $('#fingerPrint').on('keydown', function(e){
+            var introKey = e.keyCode;
+            if(introKey == 13 || introKey == 32) holdStart();
+        }
+    );
 
 
 
@@ -272,7 +277,7 @@ $(document).ready(function(){
     });
 
     //about keydown
-    $(document).on('keydown', function(e){
+    $('#about').on('keydown', function(e){
         if($('#about article').is(':animated')) return false;
     
         var key = e.keyCode;
@@ -409,12 +414,11 @@ $(document).ready(function(){
     });
 
 
-
-
     //skill next, prev 버튼
 
 
-    //person
+
+
 
 
 
@@ -446,34 +450,33 @@ $(document).ready(function(){
     //project===============================================
 
     var artiZ = [];
-    var artiT = [0, -120, -170, -210, -240, -260, -260 ,-260];
+    //var artiT = [0, -120, -170, -210, -240, -260, -260 ,-260];
+    var artiT = [-150, -270, -330, -370, -400, -425, -425, -425, -425];
     var artiNum = 0;
 
+    //project wheel
     $('#project article').each(function(idx){
         artiZ[idx] = -600*idx;
-        //artiT[idx] = -50*idx;
-
-        //$(this).css({transform: 'translate3d(-50%, 0, ' + artiZ[idx] + 'px) scale(' + artiSize[idx] + ')'});
         $(this).css({top: artiT[idx], transform: 'translate3d(-50%, 0, ' + artiZ[idx] + 'px) scale(0.96)'});
-
     });
+    
 
     var timerWheel2 = 0;
 
     $(document).on('mousewheel DOMMouseScroll', function(e){
+        
         clearTimeout(timerWheel2);
+        $('#project article').off('mouseenter mouseleave');
         
         timerWheel2 = setTimeout(function(){
-            //if($('#about article').is(':animated')) return false;
             var delta = e.originalEvent.wheelDelta || e.originalEvent.detail*-1;
-            //var pNum =  artiNum1;
 
-            if(delta < 0 && artiNum < 7){
+            if(delta < 0 && artiNum < 8){
                 artiZ.unshift(0);
                 artiT.unshift(600);
 
-                for(var i=0; i<$('#project article').length; i++){
-                    TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], y: artiT[i]});
+                for(var i=0; i < $('#project article').length; i++){
+                    TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], top: artiT[i], onComplete: overOn});
                 }
 
                 artiNum++;
@@ -483,39 +486,108 @@ $(document).ready(function(){
                 artiZ.splice(0,1);
                 artiT.splice(0,1);
 
-                for(var i=0; i<$('#project article').length; i++){
-                    TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], y: artiT[i]});
+                for(var i=0; i < $('#project article').length; i++){
+                    TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], top: artiT[i], onComplete: overOn});
                 }
 
                 artiNum--;
             }
-        }, 200);
 
-        console.log(artiZ, artiT, artiNum);
+        }, 200);
     });
 
-    // $('#project article').on('click', function(){
+
+    //project keydown
+    $('#project').on('keydown', function(e){
+
+        if($('#project article').is(':animated')) return false;
+    
+        var key = e.keyCode;
         
-    //     TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], y: artiT[i]});
+        if((key == 39 || key == 40) && artiNum < 8){
+            artiZ.unshift(0);
+            artiT.unshift(600);
 
-    // });
+            for(var i=0; i < $('#project article').length; i++){
+                TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], top: artiT[i], onComplete: overOn});
+            }
+
+            artiNum++;
+        }
+        else if((key == 37 || key == 38) && artiNum > 0){
+            artiZ.splice(0,1);
+            artiT.splice(0,1);
+
+            for(var i=0; i < $('#project article').length; i++){
+                TweenMax.to('#project article:eq(' + i + ')', 2, {z: artiZ[i], top: artiT[i], onComplete: overOn});
+            }
+
+            artiNum--;
+        }
+
+    });
 
 
+    $('#project article').on({
+        click: function(){
+            $('#project #project_detail').addClass('on');
+
+            var artiIdx = $(this).index();
+
+            $(this).parent().next().children().eq(artiIdx).css('display', 'block').stop().animate({opacity: 1}, 600);
+            
+            $('#project #project_detail.on .btn_projmenu').on('click', function(){
+                $('#project #project_detail').removeClass('on').children().stop().animate({opacity: 0}, 600, function(){
+                    $(this).css({display: 'none'});
+                });
+            });
+        },
+        mouseenter: function(){
+            $(this).stop().animate({top: artiT[$(this).index()] - 70}, 500);
+        },
+        mouseleave: function(){
+            $(this).stop().animate({top: artiT[$(this).index()]}, 500);
+        }
+    });
+
+
+    function overOn(){
+        $('#project article').on({
+            mouseenter: function(){
+                $(this).stop().animate({top: artiT[$(this).index()] - 70}, 500);
+            },
+            mouseleave: function(){
+                $(this).stop().animate({top: artiT[$(this).index()]}, 500);
+            }
+        });
+    }
 
 
     //gnb
     $('#container #btnOpen').on('click', function(){
-        $('#gnb').addClass('active').css('opacity', 1);
+        if($(this).hasClass('on')){
+            $(this).removeClass('on').attr('aria-label', '전체 메뉴 열기').text('menu').css({color: '#fff'});
+            $('#gnb').removeClass('active').css('opacity', 0);
+        } else {
+            $(this).addClass('on').attr('aria-label', '전체 메뉴 닫기').text('close').css({color: '#000'});
+            $('#gnb').addClass('active').css('opacity', 1);
+        }
+
+        //$('#project #project_detail').removeClass('on');
+
+        $('#project #project_detail.on .btn_projmenu').click();
 
     });
+
 
     $('#gnb ul li a').on('click', function(e){
         e.preventDefault();
 
-        $edith.removeClass();
+        $('#container #btnOpen').removeClass('on').attr('aria-label', '전체 메뉴 열기').text('menu').css({color: '#fff'});
+        $('#gnb').removeClass('active').css('opacity', 0);
 
-        $('#gnb').removeClass('active');
-        $('#edith, #main, #act1, #act2, #about, #contact, #project, #info, #elsewhere, #skill, #person').removeClass('active').css('opacity', 0);
+        $edith.removeClass();
+        $('#main, #act1, #act2, #about, #contact, #project, #info, #elsewhere, #skill, #person').removeClass('active').css('opacity', 0);
 
         var gnbIdx = $(this).parent().index();
 
@@ -541,7 +613,6 @@ $(document).ready(function(){
         }
 
     });
-
 
 
 });

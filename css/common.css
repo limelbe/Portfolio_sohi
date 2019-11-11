@@ -39,9 +39,79 @@
         url("../font/Montserrat-Bold.woff") format("woff"),
         url("../font/Montserrat-Bold.ttf") format("truetype");
 }
+@font-face{
+    font-family: NotoS;
+    font-weight: 400;
+    src: url("../font/NotoSans-Regular.eot");
+    src: local("※"), 
+        url("../font/NotoSans-Regular.woff") format("woff"),
+        url("../font/NotoSans-Regular.ttf") format("truetype");
+}
+@font-face{
+    font-family: Neo;
+    font-weight: 400;
+    src: url("../font/Neothic.eot");
+    src: local("※"), 
+        url("../font/Neothic.eot") format("woff"),
+        url("../font/Neothic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Lucidab;
+    font-weight: 400;
+    src: url("../font/LBRITE.eot");
+    src: local("※"), 
+        url("../font/LBRITE.woff") format("woff"),
+        url("../font/LBRITE.TTF") format("truetype");
+}
+@font-face{
+    font-family: Lucidab;
+    font-weight: 700;
+    src: url("../font/lucidabrightdemibold.eot");
+    src: local("※"), 
+        url("../font/lucidabrightdemibold.woff") format("woff"),
+        url("../font/lucidabrightdemibold.TTF") format("truetype");
+}
+@font-face{
+    font-family: GothA1;
+    font-weight: 400;
+    src: url("../font/GothicA1-Regular.eot");
+    src: local("※"), 
+        url("../font/GothicA1-Regular.woff") format("woff"),
+        url("../font/GothicA1-Regular.TTF") format("truetype");
+}
+@font-face{
+    font-family: GothA1;
+    font-weight: 700;
+    src: url("../font/GothicA1-Bold.eot");
+    src: local("※"), 
+        url("../font/GothicA1-Bold.woff") format("woff"),
+        url("../font/GothicA1-Bold.TTF") format("truetype");
+}
+@font-face {
+    font-family: 'Chosunilbo_myungjo'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+@font-face {
+    font-family: NanumGo;
+    font-weight: 400;
+    src: url("../font/NanumGothic.eot");
+    src: local("※"),
+        url("../font/NanumGothic.woff") format("woff"),
+        url("../font/NanumGothic.ttf") format("truetype");
+}
+@font-face {
+    font-family: NanumGo;
+    font-weight: 700;
+    src: url("../font/NanumGothicBold.eot");
+    src: local("※"),
+        url("../font/NanumGothicBold.woff") format("woff"),
+        url("../font/NanumGothicBold.ttf") format("truetype");
+}
 
 /* reset */
-body, h1, h2, h3, h4, h5 , h6, ul, button, p, a, strong, th, td {margin: 0; padding: 0;}
+body, h1, h2, h3, h4, h5 , h6, ul, button, p, a, strong {margin: 0; padding: 0;}
 a:link, a:visited, a:hover, a:active {text-decoration: none; color: inherit;}
 ul, li {list-style: none;}
 button {background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; line-height: inherit;}
