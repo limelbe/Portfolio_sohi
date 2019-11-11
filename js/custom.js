@@ -37,8 +37,8 @@ $(document).ready(function(){
 
     //skip btn 
     $('#main .skip_btn').on('click', function(){
-        clearInterval(timer1);
-        clearInterval(timer2);
+        clearTimeout(timer1);
+        clearTimeout(timer2);
         clearTimeout(timer3);
         $edith.css({opacity: 1});
         act2On();
@@ -68,56 +68,49 @@ $(document).ready(function(){
 
     //act1
     var sayArr = ['Hello', 'i’m data secretary, Edith.', 'This is Sohi’s Portfoilo', 'about WEB PUBLISHING'];
-    var sayThat = new Array();
-
-    for (var i=0; i<sayArr.length; i++){
-        sayThat[i] = sayArr[i].split(' ');
-    }
-
     var ed = 0;
     var timer1;
     var timer2;
     var timer3;
 
     function edithSay(){
-        var n = 0;
-        var delayTime = 1000*(sayThat[0].length);
+        var delayTime = 1500;
 
-        $('#main #act1 .txt1').empty();
-        $('#main #act1 .txt2').empty();
+        $('#main #act1 .txt_area .txt1').append('<span>' + sayArr[ed] + ' </span>').children().stop().animate({opacity: 1, marginTop: 0}, 1000, function(){
+            ed++;
+        });
 
-        timer1 = setInterval(function(){
-            if(n == sayThat[ed].length-1) {
+        timer1 = setTimeout(function(){
+            $('#main #act1 .txt_area .txt2').append('<span>' + sayArr[ed] + ' </span>').children().stop().animate({opacity: 1, marginTop: 0}, 1000, function(){
                 ed++;
-                clearInterval(timer1);
-            }
-            $('#main #act1 .txt1').append('<span>' + sayThat[0][n] + ' </span>');
-            $('.txt1 span').stop().animate({opacity: 1}, 800);
-            n++;
-        }, 1000);
+                $('#main #act1 .txt_area p').stop().delay(1000).animate({opacity: 0}, 800, function(){
+                    $(this).empty().css({opacity: 1});
+                });
+            });
+        }, delayTime);
+
+        timer2 = setTimeout(function(){
+            $('#main #act1 .txt_area .txt1').append('<span>' + sayArr[ed] + ' </span>').children().stop().animate({opacity: 1, marginTop: 0}, 1000, function(){
+                ed++;
+            });
+        }, 4800);
 
         timer3 = setTimeout(function(){
-            n=0;
-            timer2 = setInterval(function(){
-                if(n == sayThat[ed].length-1) {
-                    ed++;
-                    $('#act1').stop().delay(2000).animate({opacity: 0}, 1000, function(){
-                        $('#main .skip_btn').animate({opacity: 0}, 200, function(){
-                            $(this).remove();
-                        })
-                        act2On();
-                    });
-                    clearInterval(timer2);
-                }
-                $('#main #act1 .txt2').append('<span>' + sayThat[1][n] + ' </span>');
-                $('.txt2 span').stop().animate({opacity: 1, paddingRight: 10}, 800);
-                n++;
-            }, 1000);
-        }, delayTime);
+            $('#main #act1 .txt_area .txt2').append('<span>' + sayArr[ed] + ' </span>').children().stop().animate({opacity: 1, marginTop: 0}, 1000, function(){
+                $('#act1').stop().delay(2000).animate({opacity: 0}, 1000, function(){
+                    $('#main .skip_btn').animate({opacity: 0}, 200, function(){
+                        $(this).remove();
+                    })
+                    act2On();
+                });
+            });
+        }, 4800 + delayTime);
     }
+
 
     //act2
     function act2On(){
+        $('#container #btnOpen').addClass('active').stop().animate({opacity: 1}, 800);
         $('#act1').removeClass('active');
         $edith.addClass('onAct2').stop().animate({left: '24%', opacity: 1}, 2500, "easeInOutExpo", function(){
             $('#act2').addClass('active').animate({opacity: 1}, function(){
@@ -530,17 +523,18 @@ $(document).ready(function(){
 
     $('#project article').on({
         click: function(){
-            $('#project #project_detail').addClass('on');
-
             var artiIdx = $(this).index();
-
-            $(this).parent().next().children().eq(artiIdx).css('display', 'block').stop().animate({opacity: 1}, 600);
-            
-            $('#project #project_detail.on .btn_projmenu').on('click', function(){
-                $('#project #project_detail').removeClass('on').children().stop().animate({opacity: 0}, 600, function(){
+            $(this).parent().next().addClass('on').children().eq(artiIdx).css({display: 'block'}).stop().animate({opacity: 1}, 800);
+            $('#project #project_detail .btn_projmenu').on('click', function(){
+                $(this).parent().stop().animate({opacity: 0}, 800, function(){
                     $(this).css({display: 'none'});
+                    $('#project #project_detail').removeClass('on');
                 });
+
+                $('#container #btnOpen').css({display: 'block'});
             });
+
+            $('#container #btnOpen').css({display: 'none'});
         },
         mouseenter: function(){
             $(this).stop().animate({top: artiT[$(this).index()] - 70}, 500);
@@ -563,19 +557,39 @@ $(document).ready(function(){
     }
 
 
+    for(var i=0; i<2; i++){
+        $('#project_detail > div .btn_more .over_rect > div').append('<div class="rect"></div>');
+    }
+
+    $('#project_detail > div .btn_more a').on({
+        'mouseenter focus': function(){
+            var bgColor = $(this).parent().children('.site').css('backgroundColor');
+
+            $('#project_detail > div .btn_more .over_rect > div .rect').css({backgroundColor: bgColor});
+
+            $(this).animate({fontSize: 28});
+            $(this).siblings('.over_rect').children().eq($(this).index()).addClass('on');
+        },
+        'mouseleave blur': function(){
+            $(this).animate({fontSize: 26});
+            $(this).siblings('.over_rect').children().removeClass('on');
+        }
+    })
+
+
     //gnb
+    var openSrc = $('#container #btnOpen img').attr('src');
+    var closeSrc = $('#container #btnOpen img').data('src');
+
     $('#container #btnOpen').on('click', function(){
+
         if($(this).hasClass('on')){
-            $(this).removeClass('on').attr('aria-label', '전체 메뉴 열기').text('menu').css({color: '#fff'});
+            $(this).removeClass('on').attr('aria-label', '전체 메뉴 열기').css({color: '#fff'}).children().attr('src', openSrc);
             $('#gnb').removeClass('active').css('opacity', 0);
         } else {
-            $(this).addClass('on').attr('aria-label', '전체 메뉴 닫기').text('close').css({color: '#000'});
+            $(this).addClass('on').attr('aria-label', '전체 메뉴 닫기').css({color: '#000'}).children().attr('src', closeSrc);
             $('#gnb').addClass('active').css('opacity', 1);
         }
-
-        //$('#project #project_detail').removeClass('on');
-
-        $('#project #project_detail.on .btn_projmenu').click();
 
     });
 
@@ -583,7 +597,7 @@ $(document).ready(function(){
     $('#gnb ul li a').on('click', function(e){
         e.preventDefault();
 
-        $('#container #btnOpen').removeClass('on').attr('aria-label', '전체 메뉴 열기').text('menu').css({color: '#fff'});
+        $('#container #btnOpen').removeClass('on').attr('aria-label', '전체 메뉴 열기').css({color: '#fff'}).children().attr('src', openSrc);
         $('#gnb').removeClass('active').css('opacity', 0);
 
         $edith.removeClass();

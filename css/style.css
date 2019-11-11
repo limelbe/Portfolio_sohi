@@ -226,9 +226,9 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #main .area {position: relative;}
 
-#act1 {position: absolute; top: 50%; left: 50%; transform: translate(-50%,200%); width: 500px; font-size: 1.625rem; text-align: center; line-height: 1.8;}
-#act1 .txt_area {position: absolute; top: 200px; left: 50%; transform: translate(-50%, 0); width: 600px; height: 100px;}
-#act1 .txt_area span {opacity: 0;}
+#act1 {position: absolute; top: 50%; left: 50%; transform: translate(-50%,200%); width: 800px; font-size: 1.625rem; text-align: center; line-height: 1.8;}
+#act1 .txt_area {position: absolute; top: 200px; left: 50%; transform: translate(-50%, 0); width: 800px; height: 100px;}
+#act1 .txt_area span {opacity: 0; margin-top: -20px;}
 
 #act2 .txt5 {position: absolute; top: 30%; left: 3%; font-size: 1.5rem;}
 #act2 button {position: absolute; right: 30px; display: block; width: 560px; height: 112px; background: rgba(255,255,255,0.15); font-size: 2.375rem; box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2); text-align: left; transition: all 0.8s;}
@@ -256,7 +256,8 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 
 /* ========== #gnb ============== */
-#container #btnOpen {position: fixed; top: 20px; right: 20px; z-index: 250;}
+#container #btnOpen {position: fixed; top: 30px; right: 30px; z-index: 250; width: 50px;}
+#container #btnOpen img {width: 100%;}
 #gnb {position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-size: 90px; font-weight: 700; background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);; display: flex; align-items: center; justify-content: center; z-index: 200;}
 #gnb .gnb_bg {}
 #gnb ul {text-align: center;}
@@ -424,7 +425,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #project_detail > div .btn_projmenu, #project_detail > div img, #project_detail > div .summary, #project_detail > div .btn_more {position: absolute;}
 
 #project_detail > div .area {position: relative; width: 1700px; height: 100%; margin: 0 auto;}
-#project_detail > div .btn_projmenu {right: 60px; bottom: 50px; width: 50px; height: 25px; z-index: 200; background: url(../images/menu_w.png) no-repeat center center;}
+#project_detail > div .btn_projmenu {right: 60px; bottom: 50px; width: 54px; height: 44px; z-index: 200; background: url(../images/menu_w.png) no-repeat center center;}
 
 #project_detail .d_normal .btn_projmenu, #project_detail .d_standard .btn_projmenu, #project_detail .d_artmining .btn_projmenu {background-image: url(../images/menu_b.png);}
 
@@ -450,11 +451,31 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #project_detail > div .summary2 > li .palette li span {font-size: 16px;}
 #project_detail > div .summary2 > li .palette li span::before {content: ''; position: absolute; top: 0; left: 50%; margin-left: -50px; width: 100px; height: 100px; border-radius: 50%;}
 #project_detail > div .summary2 > li .font li {position: relative; display: inline-block; width: 180px; text-align: center; padding-top: 90px; margin-top: 36px;}
-#project_detail > di .summary2 > li .font li span {font-size: 24px;}
+#project_detail > div .summary2 > li .font li span {font-size: 24px;}
 #project_detail > div .summary2 > li .font li span::before {position: absolute; top: 0; left: 50%; margin-left: -80px; width: 160px; text-align: center; font-size: 60px;}
 
-#project_detail > div .btn_more a {float: left; display: block; width: 180px; height: 56px; line-height: 56px; font-size: 26px; font-weight: 700; text-align: center; box-sizing: border-box;}
-#project_detail > div .btn_more .git {width: 134px; border: 2px solid; margin-left: 18px;}
+#project_detail > div .btn_more a {position: relative; float: left; display: block; width: 180px; height: 56px; line-height: 56px; font-size: 26px; font-weight: 700; text-align: center; box-sizing: border-box; border: 2px solid; z-index: 100;}
+#project_detail > div .btn_more .site {border-color: transparent;}
+#project_detail > div .btn_more .git {width: 134px; margin-left: 18px;}
+
+#project_detail > div .btn_more .over_rect {position: absolute; top: 0; left: 0; z-index: 0;}
+#project_detail > div .btn_more .over_rect > div {position: relative; float: left;}
+
+#project_detail > div .btn_more .over_rect > div .rect {
+    content:''; position: absolute; top: 0; left: 0; width: 180px; height: 56px;
+}
+
+#project_detail > div .btn_more .over_rect > div:nth-child(2) .rect {
+    left: 198PX; width: 134px;
+}
+
+#project_detail > div .btn_more .over_rect > div.on .rect:nth-child(1) {animation: rect 1.2s infinite;}
+#project_detail > div .btn_more .over_rect> div.on .rect:nth-child(2) {animation: rect 1.2s infinite -0.9s;}
+
+@keyframes rect {
+    0% {transform: scale(1,1); opacity: 1;}
+    100% {transform: scale(1.3,1.5); opacity: 0;}
+}
 
 /* d_normal */
 #project_detail .d_normal {background-color: #f0f0f0; color: #000; font-family: Lucidab;}
@@ -481,7 +502,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #project_detail .d_normal .btn_more {left: 0; bottom: 60px;}
 #project_detail .d_normal .btn_more .site {background: #000; color: #fff;}
-#project_detail .d_normal .btn_more .git {border-color: #000;}
+#project_detail .d_normal .btn_more .git {background: #f0f0f0; border-color: #000;}
 
 /* d_portfolio */
 #project_detail .d_portfolio {background-color: #4a30b5;}
@@ -501,7 +522,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #project_detail .d_portfolio .btn_more {right: 0; top: 415px; font-weight: 500;}
 #project_detail .d_portfolio .btn_more .site {background: #a95fcf;}
-#project_detail .d_portfolio .btn_more .git {border-color: #a95fcf;}
+#project_detail .d_portfolio .btn_more .git {background: #4a30b5; border-color: #a95fcf;}
 
 /* d_megabox */
 #project_detail .d_megabox {background-color: #351f66; font-family: NotoS;}
@@ -521,7 +542,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #project_detail .d_megabox .btn_more {right: 0; top:470px;}
 #project_detail .d_megabox .btn_more .site {background: #2e91ae;}
-#project_detail .d_megabox .btn_more .git {border-color: #2e91ae;}
+#project_detail .d_megabox .btn_more .git {background: #351f66; border-color: #2e91ae;}
 
 /* d_responsive */
 #project_detail .d_responsive {background-color: #2498d1; font-family: NanumGo;}
@@ -543,7 +564,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #project_detail .d_responsive .btn_more {bottom: 50px; left: 0;}
 #project_detail .d_responsive .btn_more a {line-height: 52px;}
 #project_detail .d_responsive .btn_more .site {background: #452de5;}
-#project_detail .d_responsive .btn_more .git {border-color: #452de5;}
+#project_detail .d_responsive .btn_more .git {background: #2498d1; border-color: #452de5;}
 
 /* d_standard */
 #project_detail .d_standard {background-color: #5fc0eb; font-family: NanumGo; color: #000;}
@@ -566,7 +587,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #project_detail .d_standard .btn_more {top: 320px; left: 930px;}
 #project_detail .d_standard .btn_more a {line-height: 52px;}
 #project_detail .d_standard .btn_more .site {background: #2498d1; color: #fff;}
-#project_detail .d_standard .btn_more .git {border-color: #2498d1;}
+#project_detail .d_standard .btn_more .git {background: #5fc0eb; border-color: #2498d1;}
 
 /* d_artmining */
 #project_detail .d_artmining {background-color: #ffb400; font-family: NotoS; color: #000;}
@@ -584,7 +605,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #project_detail .d_artmining .btn_more {bottom: 60px; left: 1140px;}
 #project_detail .d_artmining .btn_more .site {background: #000; color: #fff;}
-#project_detail .d_artmining .btn_more .git {border-color: #000; line-height: 52px;}
+#project_detail .d_artmining .btn_more .git {background: #ffb400; border-color: #000; line-height: 52px;}
 
 /* d_huvis */
 #project_detail .d_huvis {background-color: #00265b; font-family: NotoS;}
@@ -600,7 +621,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #project_detail .d_huvis .btn_more {bottom: 60px; left: 420px;}
 #project_detail .d_huvis .btn_more .site {background: #01b4e5;}
-#project_detail .d_huvis .btn_more .git {border-color: #01b4e5; line-height: 52px;}
+#project_detail .d_huvis .btn_more .git {background: #00265b; border-color: #01b4e5; line-height: 52px;}
 
 /* d_hanwhalife */
 #project_detail .d_hanwhalife {background-color: #f15b47; font-family: NotoS;}
@@ -616,7 +637,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #project_detail .d_hanwhalife .btn_more {bottom: 60px; left: 0;}
 #project_detail .d_hanwhalife .btn_more .site {background: #fff; color: #f15b47;}
-#project_detail .d_hanwhalife .btn_more .git {border-color: #fff; line-height: 52px;}
+#project_detail .d_hanwhalife .btn_more .git {background: #f15b47; border-color: #fff; line-height: 52px;}
 
 /* d_nvisana */
 #project_detail .d_nvisana {background-color: #59595c; font-family: NotoS;}
@@ -630,13 +651,10 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 #project_detail .d_nvisana .btn_more {bottom: 220px; right: 0;}
 #project_detail .d_nvisana .btn_more .site {background: #5597d1;}
-#project_detail .d_nvisana .btn_more .git {border-color: #5597d1; line-height: 52px;}
+#project_detail .d_nvisana .btn_more .git {background: #59595c; border-color: #5597d1; line-height: 52px;}
 
 
 #project_detail .d_normal, #project_detail .d_portfolio, #project_detail .d_megabox, #project_detail .d_responsive, #project_detail .d_standard, #project_detail .d_artmining, #project_detail .d_huvis, #project_detail .d_hanwhalife, #project_detail .d_nvisana {display: none; opacity: 0;}
-
-
-
 
 
 
@@ -654,9 +672,9 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 
 
-#edith, #main, #act1, #act2, #about, #contact, #gnb, #project {display: none;}
+#edith, #main, #act1, #act2, #about, #contact, #gnb, #btnOpen {display: none;}
 #edith.active, #main.active, #act1.active, #act2.active, #about.active, #project.active, #contact.active {display: block; opacity: 0;}
-#gnb.active {display: flex; opacity: 0;}
+#gnb.active, #btnOpen.active {display: flex; opacity: 0;}
 
 
 #info, #elsewhere, #skill, #person {z-index: -1; display: none;}
