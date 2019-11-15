@@ -57,27 +57,8 @@
                         </g>
                     </g>
                 </svg>
-            <!-- <svg class="wave1" viewBox="0 0 1920 304" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g>
-                    <linearGradient id="waveOne" gradientUnits="userSpaceOnUse" x1="949.2168" y1="561.836" x2="953.7612" y2="78.6118">
-                        <stop  offset="0" style="stop-color:#FFFFFF; stop-opacity:0.2"/>
-                        <stop  offset="1" style="stop-color:#FFFFFF; stop-opacity:0"/>
-                    </linearGradient>
-                    <path class="st0" d="M1015.1,227.8c287.3,75,626.3,97.3,897.9,81.3V10H-7v115.3C67.7,118.4,483.3,89,1015.1,227.8z"/>
-                </g>
-            </svg>
-            <svg class="wave2" viewBox="0 0 1920 319" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g>
-                    <linearGradient id="waveTwo" gradientUnits="userSpaceOnUse" x1="866.6323" y1="678.3719" x2="979.4433" y2="48.0632">
-                        <stop  offset="0" style="stop-color:#FFFFFF; stop-opacity:0.2"/>
-                        <stop  offset="1" style="stop-color:#FFFFFF; stop-opacity:0"/>
-                    </linearGradient>
-                    <path class="st1" d="M992,242.9c328.3,120.2,625.4,87.2,931.5,26.4V5H3.5v105.9C119.8,73.4,485.5,57.5,992,242.9z"/>
-                </g>
-            </svg> -->
         </div>
     </div>
-    <!-- <svg></svg> -->
     <div id="edith">
             <div class="edith_bg"></div>
             <div class="view">
@@ -1095,16 +1076,13 @@
         <section id="contact">
             <div class="area">
                 <h2>Contact Me</h2>
-                <!-- <svg></svg> -->
-                <form action="">
-                    <input type="text" id="email">
-                    <input type="textarea" id="message">
+                <form action="" id="sendEmail" method="">
+                    <input type="text" id="email" class="u_write" name="email" placeholder="E-mail">
+                    <textarea id="message" class="u_write" name="message" placeholder="Fill out your message."></textarea>
                     <button type="submit">Send</button>
                 </form>
-                <ul>
-                    <li><img src="images/email.png" alt="이메일">jshee940315@naver.com</li>
-                    <li><img src="images/phone.png" alt="sms">Qldyd2 (kakaotalk)</li>
-                </ul>
+                <button type="button" class="rewrite">Rewrite</button>
+                <p>jshee940315@naver.com</p>
             </div>
             <div class="bubble"></div><!-- 스크립트로 자식 div들 추가해서 버블버블 -->
         </section>

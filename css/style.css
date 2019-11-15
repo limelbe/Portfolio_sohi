@@ -8,6 +8,8 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #edith {position: absolute; top: 50%; left: 50%; width: 320px; height: 320px; transform: translate(-50%,-60%) scale(1); transition: transform 2s; z-index: 100;}
 #edith.onAct2 {transform: translate(-50%,-50%) scale(0.7);}
 #edith.onInfo {transform: translate(-50%,-50%) scale(0.5);}
+#edith.onCont {transform: translate(-50%,-115%) scale(0.3);}
+#edith.onContSend {transform: translate(-50%,-80%) scale(0.8);}
 /* #edith.on2:before, #edith.on2:after {content:''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(1); background: rgba(255,255,255,0.2); border-radius: 50%;}
 #edith.on2:before {width: 420px; height: 420px; box-shadow: 0 0 20px 10px rgba(255,255,255,0.2);}
 #edith.on2:after {width: 540px; height: 540px;} */
@@ -212,7 +214,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #intro span {font-size: 1.5rem; margin-top: 66px;}
 
 #fingerPrint {cursor: pointer; transform: scale(1.2);}
-#fingerPrint path.touch {transition: all 1.8s ease-out; animation: try 1.2s ease-out;}
+#fingerPrint path.touch {transition: all 1.4s ease-out; animation: try 1s ease-out;}
 #fingerPrint path.touch.active {stroke-dashoffset: 0;}
 
 @keyframes try {
@@ -230,7 +232,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #act1 .txt_area {position: absolute; top: 200px; left: 50%; transform: translate(-50%, 0); width: 800px; height: 100px;}
 #act1 .txt_area span {opacity: 0; margin-top: -20px;}
 
-#act2 .txt5 {position: absolute; top: 30%; left: 3%; font-size: 1.5rem;}
+#act2 .txt5 {position: absolute; top: 30%; left: 4%; font-size: 1.5rem;}
 #act2 button {position: absolute; right: 30px; display: block; width: 560px; height: 112px; background: rgba(255,255,255,0.15); font-size: 2.375rem; box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2); text-align: left; transition: all 0.8s;}
 #act2 .data {top: 237px; padding-left: 150px;}
 #act2 .project {top: 414px; padding-left: 154px;}
@@ -320,10 +322,6 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 .skilltype > li .skill_view {position: absolute; width: 80px; bottom: 26px; left: 50%; margin-left: -40px; color: #fff; font-weight: 300;}
 .skilltype > li.on .skill_view {font-weight: 500;}
 
-.skilltype .sk_coding.on .skill_view {color: #1946d1;}
-.skilltype .sk_design.on .skill_view {color: #3a14c6;}
-.skilltype .sk_etc.on .skill_view {color: #cc2569;}
-
 .skilltype .sk_coding .txt_wrap .type {background-image: url(../images/skill_coding.png); padding-left: 90px;}
 .skilltype .sk_design .txt_wrap .type {background-image: url(../images/skill_design.png);}
 .skilltype .sk_etc .txt_wrap .type {background-image: url(../images/skill_etc.png); background-position: 0 4px;}
@@ -332,7 +330,8 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 .skilltype .sk_etc .txt_wrap .skill_num {margin-top: -29px;}
 .skilltype .sk_etc .txt_wrap .skill_num img {margin-top: -10px; padding-right: 18px;}
 
-.skilltype > li.over .shape {transform: scale(1.04);}
+.skilltype > li.over .shape {transform: scale(1.1);}
+.skilltype > li.over .shape path {fill: #2a006d; opacity: 0.3;}
 
 .skilltype > li.on {margin-left: 0; cursor: auto;}
 .skilltype > li.on .shape {transform: scale(1.5);}
@@ -345,23 +344,23 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 .skilltype .sk_design.on .txt_wrap .type {background-image: url(../images/skill_design_on.png);}
 .skilltype .sk_etc.on .txt_wrap .type {background-image: url(../images/skill_etc_on.png);}
 
-#skill .btn_wrap {top: 316px; left: 454px; display: none;}
-#skill .btn_wrap.on {top: 316px; left: 454px; display: block;}
+#skill .btn_wrap {top: 316px; left: 454px;}
+#skill .btn_wrap.on {top: 316px; left: 454px;}
 #skill .btn_wrap button {background: no-repeat left top; width: 40px; height: 40px;}
 #skill .btn_wrap .prev_skill {background-image: url(../images/btn_prev.png); margin-right: 18px;}
 #skill .btn_wrap .next_skill {background-image: url(../images/btn_next.png);}
 
 .skilltype > li .shape, .skilltype > li .txt_wrap {transition: all .6s ease;}
-.skilltype > li .txt_wrap .type {transition: all .6s 0.4s;}
-.skilltype > li .txt_wrap p {transition: all 1.2s 0.8s;}
-.skilltype > li .txt_wrap .icons {transition: all 1.2s 1.2s;}
-.skilltype > li.on .skill_view {transition: all 1s 0.5s;}
+.skilltype > li .txt_wrap .type {transition: all .6s 0.3s;}
+.skilltype > li .txt_wrap p {transition: all 1.2s 0.5s;}
+.skilltype > li .txt_wrap .icons {transition: all 1.2s 1s;}
+.skilltype > li.on .skill_view {transition: all 1s 0.4s;}
 
-.polygon_wrap, #skill .btn_wrap {display: none; position: absolute;}
+.polygon_wrap, #skill .btn_wrap {display: none; position: absolute; opacity: 0;}
 .polygon_wrap.on, #skill .btn_wrap.on {display: block;}
 
 .polygon_wrap {top: 314px; right: 0; width: 60%; height: 464px;}
-.polygon_wrap .poly {position: absolute; top: 0; left: 50%; transform: translate(-50%,0); height: 100%; opacity: 0; transition: opacity 2s;}
+.polygon_wrap .poly {position: absolute; top: 0; left: 50%; transform: translate(-50%,0); height: 100%;}
 .polygon_wrap .poly1 {width: 519px;}
 .polygon_wrap .poly2 {width: 606px;}
 .polygon_wrap .poly3 {width: 529px;}
@@ -462,7 +461,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #project_detail > div .btn_more .over_rect > div {position: relative; float: left;}
 
 #project_detail > div .btn_more .over_rect > div .rect {
-    content:''; position: absolute; top: 0; left: 0; width: 180px; height: 56px;
+    content:''; position: absolute; top: 0; left: 0; width: 180px; height: 56px; opacity: 0.6;
 }
 
 #project_detail > div .btn_more .over_rect > div:nth-child(2) .rect {
@@ -473,8 +472,8 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #project_detail > div .btn_more .over_rect> div.on .rect:nth-child(2) {animation: rect 1.2s infinite -0.9s;}
 
 @keyframes rect {
-    0% {transform: scale(1,1); opacity: 1;}
-    100% {transform: scale(1.3,1.5); opacity: 0;}
+    0% {transform: scale(1,1); opacity: 0.6;}
+    100% {transform: scale(1.2,1.5); opacity: 0;}
 }
 
 /* d_normal */
@@ -659,23 +658,45 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 
 
-
-
-
-
-
 /* ======== #contact ======== */
-#contact {text-align: center;}
-#contact h2 {font-size: 40px; font-weight: 400; margin: 360px 0 84px;}
+#contact .area {position: relative; display: flex; align-items: center; flex-direction: column;}
+#contact h2 {font-size: 40px; font-weight: 400; margin: 320px 0 60px; transform: translateY(0x);}
+#contact #sendEmail {width: 380px; font-size: 18px; font-weight: 400; opacity: 1;}
+#contact #sendEmail > * {width: 100%; height: 50px; border-radius: 3px;}
+#contact #sendEmail .u_write {background: rgba(255,255,255,0.2); border: 1px solid #fff; margin-bottom: 15px; text-align: center; transition: all 0.5s;}
+#contact #sendEmail #message {height: 200px; padding: 20px; box-sizing: border-box;}
+#contact #sendEmail .u_write:hover {background: rgba(255,255,255,0.4);}
+#contact #sendEmail .u_write:focus {background: rgba(255,255,255, 1); transform: scaleX(1.1); color: #633CBB;}
+
+#contact button {background: #fff; font-weight: 500; color: #633CBB; transition: all 0.5s;}
+#contact button:hover, #contact button:focus {background: #4f28aa; color: #fff;}
+
+#contact .area p {margin-top: 100px; height: 24px; line-height: 24px; background: url(../images/email.png) no-repeat left center; padding-left: 45px;}
+
+#contact .area .rewrite {position: absolute; top: 78%; left: 50%; transform: translate(-50%,-50%); font-size: 18px; width: 120px; height: 34px; opacity: 0; z-index: -1; border-radius: 3px;}
+
+#contact h2 {transition: all 1.6s;}
+#contact #sendEmail {transition: all 0.8s;}
+#contact .area.on h2 {transform: translateY(260px); animation: opaAni 1.6s;}
+#contact .area.on #sendEmail {opacity: 0;}
+
+@keyframes opaAni {
+    0% {opacity: 1;}
+    30% {opacity: 0.3;}
+    100% {opacity: 1;}
+}
+
+#contact #sendEmail ::-webkit-input-placeholder {color: #fff;}
+#contact #sendEmail :-ms-input-placeholder {color: #fff;}
+#contact #sendEmail ::placeholder {color: #fff; opacity: 1;}
 
 
 
-
-
-#edith, #main, #act1, #act2, #about, #contact, #gnb, #btnOpen {display: none;}
+/* ======= 초기값, active =========== */
+#edith, #main, #act1, #act2, #about, #gnb, #btnOpen, #project, #contact {display: none;}
 #edith.active, #main.active, #act1.active, #act2.active, #about.active, #project.active, #contact.active {display: block; opacity: 0;}
 #gnb.active, #btnOpen.active {display: flex; opacity: 0;}
 
 
-#info, #elsewhere, #skill, #person {z-index: -1; display: none;}
+#info, #skill, #elsewhere, #person {z-index: -1; display: none;}
 #info.active, #skill.active, #person.active, #elsewhere.active {z-index: 10; display: block; opacity: 0;}

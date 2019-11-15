@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     function holdStart(){
         $touch.addClass('active');
-        timer = setTimeout(Success, 1000);
+        timer = setTimeout(Success, 800);
     }
 
     function hlodEnd(){
@@ -147,6 +147,7 @@ $(document).ready(function(){
         $('#act2').animate({opacity: 0}, 800, function(){
             $(this).removeClass('active');
         });
+
         $edith.removeClass('onAct2');
 
 
@@ -166,7 +167,7 @@ $(document).ready(function(){
     });
 
     function onAbout(){
-        if(!$edith.hasClass("active")) $edith.addClass('active').stop().animate({opacity: 1}, 2800, "easeInOutCubic");
+        if(!$edith.hasClass("active")) $edith.addClass('active');
 
         $edith.addClass('onInfo').stop().animate({left: '76%', opacity: 1}, 1800, "easeInOutBack", function(){
             $('#about').addClass("active").stop().animate({opacity: 1}, 800).find('#info').addClass("active").stop().animate({opacity: 1}, 500).siblings().removeClass("active");
@@ -182,7 +183,9 @@ $(document).ready(function(){
     }
 
     function onContact(){
-        if(!$edith.hasClass("active")) $edith.addClass('active').stop().delay(500).animate({opacity: 1}, 2800, "easeInOutCubic");
+        if(!$edith.hasClass("active")) $edith.addClass('active');
+
+        $edith.addClass('onCont').stop().animate({left: '50%', opacity: 1}, 1800, "easeInOutBack");
 
         $('#contact').addClass("active").stop().delay(800).animate({opacity: 1}, 800);
     }
@@ -211,6 +214,8 @@ $(document).ready(function(){
         e.preventDefault();
         if($('#about article').is(':animated')) return false;
 
+        $('#skill .skilltype > li.on button').click();
+
         nowIndiL = $(this).position().left;
         nowIndiR = $('#pagination.area').width() - nowIndiL - indiWid;
         pagiIdx = $(this).parent().index() + 1;
@@ -238,6 +243,8 @@ $(document).ready(function(){
     $('#about').on('mousewheel DOMMouseScroll', function(e){
         if($('#about article').is(':animated')) return false;
         clearTimeout(timerWheel);
+
+        $('#skill .skilltype > li.on button').click();
 
         timerWheel = setTimeout(function(){
             //if($('#about article').is(':animated')) return false;
@@ -272,6 +279,8 @@ $(document).ready(function(){
     //about keydown
     $('#about').on('keydown', function(e){
         if($('#about article').is(':animated')) return false;
+
+        $('#skill .skilltype > li.on button').click();
     
         var key = e.keyCode;
         
@@ -360,14 +369,12 @@ $(document).ready(function(){
 
         var skillIdx = $(this).index();
 
-        $('#skill .polygon_wrap, #skill .btn_wrap').addClass('on');
-        $poly.css({display: 'block'});
+        $('#skill .polygon_wrap, #skill .btn_wrap').addClass('on').stop().animate({opacity: 1}, 2000);
 
         $(this).removeClass('over').addClass('on').parent().stop().animate({opacity: 0}, 500, function(){
             $(this).addClass('active').children('li:not(.on)').css('display', 'none').parent().stop().delay(2000).animate({opacity: 1}, 1500, "easeOutCirc");
             $(this).find('.skill_view').text('CLOSE');
         });
-
 
         $poly.eq(skillIdx).addClass('on');
 
@@ -387,11 +394,12 @@ $(document).ready(function(){
         //close 버튼 클릭 닫기
         $('#skill .skilltype > li.on button').on('click', function(){
 
-            $('#skill .polygon_wrap, #skill .btn_wrap').removeClass('on');
-            $poly.css({display: 'none'});
-            $poly.removeClass('on');
-            $poly.removeClass('prev_pol');
-            $poly.removeClass('next_pol');
+            $('#skill .polygon_wrap, #skill .btn_wrap').stop().animate({opacity: 0}, 800, function(){
+                $(this).removeClass('on');
+                $poly.removeClass('on');
+                $poly.removeClass('prev_pol');
+                $poly.removeClass('next_pol');
+            });
             
             $(this).closest('.skilltype').stop().animate({opacity: 0}, 500, function(){
                 $(this).children().removeClass('on').find('.txt_wrap p, .txt_wrap .icons').css({display: 'none'});
@@ -408,7 +416,6 @@ $(document).ready(function(){
 
 
     //skill next, prev 버튼
-
 
 
 
@@ -438,6 +445,12 @@ $(document).ready(function(){
         });
         
     }, 800);
+    
+
+    //elsewhere 클릭시 blur처리
+    $('#elsewhere .site_list > li a').on('click', function(){
+        $(this).blur();
+    });
 
 
     //project===============================================
@@ -456,7 +469,7 @@ $(document).ready(function(){
 
     var timerWheel2 = 0;
 
-    $(document).on('mousewheel DOMMouseScroll', function(e){
+    $('#project').on('mousewheel DOMMouseScroll', function(e){
         
         clearTimeout(timerWheel2);
         $('#project article').off('mouseenter mouseleave');
@@ -577,6 +590,53 @@ $(document).ready(function(){
     })
 
 
+    //contact
+
+    $('#sendEmail').on('submit', function(){
+        var $umail = $('#email');
+        var $umsg = $('#message').val();
+
+        if(!regChk($umail, /^[\w]+@[a-z]{2,10}[\.][a-z]{2,3}[\.]?[a-z]{0,2}$/, '이메일형식이 올바르지 않습니다')) return false;
+        if($umsg == '') {
+            alert('메세지를 작성해주세요');
+            $('#message').focus();
+            return false;
+        }
+
+        alert('이메일이 실제로 전송되는 form형식이 아닙니다.\n연락을 원하시면 아래 메일로 연락 부탁드립니다.\n\njshee940315@naver.com');
+        sendEffect();
+
+        return false;
+        //실제로 전송되는 방법 구글링해서 추가하기
+    });
+
+    function regChk($tg, regExp, msg){
+        var result = regExp.test($tg.val());
+
+        if(result) return true;
+        else {
+            alert(msg);
+            $tg.focus();
+            return false;
+        }
+    }
+
+    function sendEffect(){
+        var $conArea = $('#contact .area');
+        $conArea.addClass('on').children('h2').text('Complete !');
+        $conArea.children('.rewrite').css('zIndex', 1).stop().animate({opacity: 1}, 800);
+        $edith.addClass('onContSend');
+
+        $conArea.children('.rewrite').on('click', function(){
+            $(this).css({zIndex: -1, opacity: 0}, 800).parent().removeClass('on').children('h2').text('Contact Me');
+            $(this).prev().find('.u_write').val('');
+            $edith.removeClass('onContSend');
+        });
+    }
+
+
+
+
     //gnb
     var openSrc = $('#container #btnOpen img').attr('src');
     var closeSrc = $('#container #btnOpen img').data('src');
@@ -602,6 +662,8 @@ $(document).ready(function(){
 
         $edith.removeClass();
         $('#main, #act1, #act2, #about, #contact, #project, #info, #elsewhere, #skill, #person').removeClass('active').css('opacity', 0);
+
+        $('#skill .skilltype > li.on button').click();
 
         var gnbIdx = $(this).parent().index();
 

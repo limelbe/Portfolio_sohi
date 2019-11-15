@@ -111,7 +111,7 @@
 }
 
 /* reset */
-body, h1, h2, h3, h4, h5 , h6, ul, button, p, a, strong {margin: 0; padding: 0;}
+body, h1, h2, h3, h4, h5 , h6, ul, button, p, a, strong, form, input {margin: 0; padding: 0;}
 a:link, a:visited, a:hover, a:active {text-decoration: none; color: inherit;}
 ul, li {list-style: none;}
 button {background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; line-height: inherit;}
@@ -120,6 +120,7 @@ body {color: #fff; font-family: Montserrat; font-weight: 300; font-size: 16px; l
 h1, h2, h3, h4, h5 , h6 {font-size: inherit; font-weight: 300;}
 strong {font-style: normal; font-weight: 300;}
 img {vertical-align: top; border: none;}
+input, textarea {font-family: inherit; font-size: inherit; color: inherit; font-weight: inherit; line-height: inherit;}
 
 /* common class */
 .f_l {float: left;}
