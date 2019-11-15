@@ -261,11 +261,11 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #container #btnOpen {position: fixed; top: 30px; right: 30px; z-index: 250; width: 50px;}
 #container #btnOpen img {width: 100%;}
 #gnb {position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-size: 90px; font-weight: 700; background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);; display: flex; align-items: center; justify-content: center; z-index: 200;}
-#gnb .gnb_bg {}
 #gnb ul {text-align: center;}
 #gnb ul li {line-height: 1.7;}
-#gnb ul li a {background-image: linear-gradient(135deg, #5c77f1 0%, #7840b1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
-
+#gnb ul li a {position: relative; background-image: linear-gradient(135deg, #5c77f1 0%, #7840b1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s; letter-spacing: 0;}
+#gnb ul li.on a {letter-spacing: 10px;}
+#gnb ul li.on a:after {content:''; width: 106%; height: 50px; background-image: linear-gradient(135deg, rgba(92, 119, 241, 0.5) 0%, rgba(120, 64, 177,0.5) 100%); position: absolute; left: 50%; bottom: 0; transform: translate(-50%,0); z-index: -1; box-shadow: inset 0 0 16px 8px #fdfbfb;}
 
 
 /* ======== #about ============== */

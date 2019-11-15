@@ -621,8 +621,9 @@ $(document).ready(function(){
         }
     }
 
+    var $conArea = $('#contact .area');
+
     function sendEffect(){
-        var $conArea = $('#contact .area');
         $conArea.addClass('on').children('h2').text('Complete !');
         $conArea.children('.rewrite').css('zIndex', 1).stop().animate({opacity: 1}, 800);
         $edith.addClass('onContSend');
@@ -654,6 +655,17 @@ $(document).ready(function(){
     });
 
 
+    $('#gnb ul li a').on({
+        'mouseenter focus': function(){
+            $(this).parent().addClass('on');
+        },
+        'mouseleave blur': function(){
+            $(this).parent().removeClass('on');
+        }
+    })
+
+
+
     $('#gnb ul li a').on('click', function(e){
         e.preventDefault();
 
@@ -664,6 +676,7 @@ $(document).ready(function(){
         $('#main, #act1, #act2, #about, #contact, #project, #info, #elsewhere, #skill, #person').removeClass('active').css('opacity', 0);
 
         $('#skill .skilltype > li.on button').click();
+        $conArea.children('.rewrite').click();
 
         var gnbIdx = $(this).parent().index();
 
