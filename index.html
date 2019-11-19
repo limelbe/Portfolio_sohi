@@ -13,17 +13,56 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/TweenMax.min.js"></script>
     <script src="js/custom.js"></script>
-    <style>
-        .st0{fill:url(#waveOne);}
-        .st1{fill:url(#waveTwo);}
-        .wave1 {position: absolute; top: 0; left: 0;}
-        .wave2 {position: absolute; top: 0; left: 0;}
-    </style>
 </head>
 <body>
     <div id="bg">
         <div class="wave_wrap">
-                <svg class="wave1" width="100%" height="371px" viewBox="0 0 1920 371" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg id="wave1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 1920 400" style="enable-background:new 0 0 1920 400;" xml:space="preserve">
+                    <style type="text/css">
+                        .wave1 {fill:url(#wave1Color);}
+                    </style>
+                    <g>
+                        <linearGradient id="wave1Color" gradientUnits="userSpaceOnUse" x1="918.213" y1="490.3381" x2="965.5022" y2="112.5869">
+                            <stop  offset="0" style="stop-color:#FFFFFF"/>
+                            <stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+                        </linearGradient>
+                        <path class="wave1">
+                            <animate 
+                            attributeType="XML"
+                            attributeName="d" 
+                            dur="7000ms" 
+                            repeatCount="indefinite"
+                            values="M979.5,263.5c424.1,144.1,741.1,146,940.5,95.1V1H0v99.1C125.4,81.6,425.9,75.4,979.5,263.5z;
+                            M979.5,267.5C1402,473,1788,350,1920,342.6V0H0v71.1C125.4,52.6,361.9-32.9,979.5,267.5z;
+                            M979.5,263.5c424.1,144.1,741.1,146,940.5,95.1V1H0v99.1C125.4,81.6,425.9,75.4,979.5,263.5z;"/>
+                        </path>
+                    </g>
+                </svg>
+                <svg id="wave2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 1920 400" style="enable-background:new 0 0 1920 400;" xml:space="preserve">
+                    <style type="text/css">
+                        .wave2 {fill:url(#wave2Color);}
+                    </style>
+                    <g>
+                        <linearGradient id="wave2Color" gradientUnits="userSpaceOnUse" x1="918.5793" y1="674.5529" x2="964.9553" y2="107.96">
+                            <stop  offset="0" style="stop-color:#FFFFFF"/>
+                            <stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+                        </linearGradient>
+                        <path class="wave2">
+                                <animate 
+                                attributeType="XML"
+                                attributeName="d" 
+                                dur="7000ms" 
+                                repeatCount="indefinite"
+                                values="M1,0h1918v330c0,0-543,90-920-26C625.4,189,338,45,1,92V0z;
+                                M1,0h1918v373c0,0-588-6-927-113C619.2,142.3,338,79,1,126V0z;
+                                M1,0h1918v330c0,0-543,90-920-26C625.4,189,338,45,1,92V0z;"/>
+                        </path>
+                    </g>
+                </svg>
+                
+                <!-- <svg class="wave1" width="100%" height="371px" viewBox="0 0 1920 371" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
                         <linearGradient x1="50%" y1="90.5469853%" x2="50%" y2="24.5787128%" id="linearGradient-1">
                             <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
@@ -56,7 +95,7 @@
                             </g>
                         </g>
                     </g>
-                </svg>
+                </svg> -->
         </div>
     </div>
     <div id="edith">
@@ -769,7 +808,7 @@
                             <li>Contribution : 100%</li>
                             <li>Term : 2019.10.01 - 2019.10.23 (23days)</li>
                             <li>Viewport : Desktop, Tablet, Mobile</li>
-                            <li>IE Support : 9+</li>
+                            <li>IE Support : -</li>
                         </ul>
                         <ul class="summary summary2">
                             <li>Palette : 
