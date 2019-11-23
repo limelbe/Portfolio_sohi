@@ -117,7 +117,7 @@ a:link, a:visited, a:hover, a:active {text-decoration: none; color: inherit;}
 ul, li {list-style: none;}
 button {background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; line-height: inherit;}
 header, nav, section, article {display: block;}
-body {color: #fff; font-family: Montserrat; font-weight: 300; line-height: 1; box-sizing: border-box;}
+body {color: #fff; font-size: 100%; font-family: Montserrat; font-weight: 300; line-height: 1; box-sizing: border-box;}
 h1, h2, h3, h4, h5 , h6 {font-size: inherit; font-weight: 300;}
 strong {font-style: normal; font-weight: 300;}
 img {vertical-align: top; border: none;}
