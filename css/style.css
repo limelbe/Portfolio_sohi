@@ -25,11 +25,11 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     transition: transform 2s; z-index: 100;
 }
 #edith.onAct2 {
-    -webkit-transform: translate(-50%,-50%) scale(0.7);
-    -ms-transform: translate(-50%,-50%) scale(0.7);
-    -moz-transform: translate(-50%,-50%) scale(0.7);
-    -o-transform: translate(-50%,-50%) scale(0.7);
-    transform: translate(-50%,-50%) scale(0.7);
+    -webkit-transform: translate(-50%,-40%) scale(0.7);
+    -ms-transform: translate(-50%,-40%) scale(0.7);
+    -moz-transform: translate(-50%,-40%) scale(0.7);
+    -o-transform: translate(-50%,-40%) scale(0.7);
+    transform: translate(-50%,-40%) scale(0.7);
 }
 #edith.onInfo {
     -webkit-transform: translate(-50%,-50%) scale(0.5);
@@ -357,7 +357,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 /* ======== #intro ======== */
 #intro .area {display: flex; align-items: center; flex-direction: column; text-align: center; line-height: 1.4;}
 #intro p {font-size: 3.125rem; margin: 24vh 0 9.5vh;}
-#intro span {font-size: 1.5rem; margin-top: 66px;}
+#intro span {font-size: 1.5rem; margin-top: 10vh;}
 
 #fingerPrint {
     width: 136px; height: 136px;
@@ -412,12 +412,13 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 }
 #act1 .txt_area span {opacity: 0; margin-top: -20px;}
 
-#act2 .txt5 {position: absolute; top: 30%; left: 4%; font-size: 1.5rem;}
+#act2 .txt5 {position: absolute; top: 30%; left: 2.4vw; font-size: 1.5rem;}
 #act2 button {
     position: absolute;
     right: 30px;
     display: block;
     width: 560px; height: 112px;
+    padding-left: 150px;
     background: rgba(255,255,255,0.15);
     font-size: 2.375rem;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2);
@@ -429,9 +430,10 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     -o-transition: all 0.8s;
     transition: all 0.8s;
 }
-#act2 .data {top: 237px; padding-left: 150px;}
-#act2 .project {top: 414px; padding-left: 154px;}
-#act2 .contact {top: 591px; padding-left: 169px;}
+#act2 .data {top: 25vh;}
+#act2 .project {top: 45vh;}
+#act2 .contact {top: 65vh;}
+
 #act2 button span {
     position: absolute;
     top: 50%; right: 60px;
@@ -591,7 +593,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 /* #info */
 #info .area {height: auto;}
-#info ul {margin-top: 300px; font-size: 1.5rem;}
+#info ul {margin-top: 26vh; font-size: 1.5rem;}
 #info ul li {padding-bottom: 30px;}
 #info ul li.map {position: relative; margin-top: -80px; height: 345px; background: url(../images/map.png) no-repeat 258px center;}
 #info ul li.map > div {
@@ -1163,7 +1165,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #contact .area {position: relative; display: flex; align-items: center; flex-direction: column;}
 #contact h2 {
     font-size: 2.5rem; font-weight: 400;
-    margin: 320px 0 60px;
+    margin: 36vh 0 6.4vh;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     -moz-transform: translateY(0px);
@@ -1278,6 +1280,19 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 @media all and (max-width: 1600px){
     html {font-size: 14px;}
     #edith {width: 280px; height: 280px;}
+    #act2 button {height: 100px;}
+    #contact #sendEmail > * {height: 40px;}
+    #contact #sendEmail #message {height: 160px;}
+}
+
+@media all and (max-width: 1400px){
+    .area {width: 90vw;}
+    #act2 .txt5 {left: 8.2vw;}
+}
+
+@media all and (max-width: 1220px){
+    #act2 button {width: 440px; padding-left: 100px;}
+    #act2 button.on {width: 480px; padding-left: 50px;}
 }
 
 @media all and (max-width: 1024px){
@@ -1292,6 +1307,9 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 @media all and (max-width: 424px){
     html {font-size: 10px;}
+    #intro p {font-size: 3rem;}
+    #act1 .txt_area {top: 16vh; left: 50%;}
+    #contact #sendEmail {width: 320px;}
 }
 
 

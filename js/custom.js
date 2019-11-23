@@ -67,7 +67,7 @@ $(document).ready(function(){
 
 
     //act1
-    var sayArr = ['Hello', 'i’m data secretary, Edith.', 'This is Sohi’s Portfoilo', 'about WEB PUBLISHING'];
+    var sayArr = ['Hello', 'i’m data secretary, Edith.', 'This is Sohi’s Portfoilo', 'about Web publishing'];
     var ed = 0;
     var timer1;
     var timer2;
