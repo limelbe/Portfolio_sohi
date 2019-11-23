@@ -419,6 +419,18 @@ $(document).ready(function(){
 
 
 
+    //person 교체효과
+    var $perTxt = $('#person .txt_box .txt_list');
+
+    setInterval(function(){
+        var liFirst = $perTxt.children().eq(0);
+
+        $perTxt.stop().animate({top: -80}, 600, function(){
+            $(this).append(liFirst).css({top: 0});
+        });
+    }, 2000);
+    
+
 
 
 

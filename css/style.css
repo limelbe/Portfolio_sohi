@@ -787,16 +787,15 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 .polygon_wrap .poly img {position: absolute; top: 0; left: 0;}
 
 /* person */
-#person .area {display: flex; justify-content: center; align-items: center;}
-#person .txt_box {position: relative; width: 800px;}
+#person .area {display: flex; justify-content: flex-end; align-items: center;}
+#person .txt_box {position: relative; width: 800px; height: 80px; margin-right: 240px; overflow: hidden;}
 #person .txt_box:before, #person .txt_box:after {position: absolute; top: -5px; font-size: 3.75rem; font-weight: 500;}
 #person .txt_box:before {content: '['; left: 0;}
 #person .txt_box:after {content: ']'; right: 0;}
-#person .txt_box .fixed_txt, #person .txt_box .txt_list, #person .txt_box .txt_list li {display: inline; font-size: 3.75rem;}
-#person .txt_box .fixed_txt {margin-left: 86px;}
-#person .txt_box .txt_list {font-weight: 700; padding-left: 52px;}
-#person .txt_box .txt_list li {position: absolute; opacity: 0;}
-#person .txt_box .txt_list li:nth-child(1) {opacity: 1;}
+#person .txt_box .fixed_txt, #person .txt_box .txt_list {display: inline; font-size: 3.75rem;}
+#person .txt_box .fixed_txt {margin-left: 80px;}
+#person .txt_box .txt_list {position: absolute; top: 0; left: 250px; font-weight: 700; padding-left: 52px;}
+#person .txt_box .txt_list li {opacity: 1; height: 80px;}
 
 /* elsewhere */
 #elsewhere .area {position: relative;}
@@ -1165,7 +1164,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #contact .area {position: relative; display: flex; align-items: center; flex-direction: column;}
 #contact h2 {
     font-size: 2.5rem; font-weight: 400;
-    margin: 36vh 0 6.4vh;
+    margin: 35vh 0 6.4vh;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     -moz-transform: translateY(0px);
@@ -1212,7 +1211,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 }
 #contact button:hover, #contact button:focus {background: #4f28aa; color: #fff;}
 
-#contact .area p {margin-top: 100px; height: 24px; line-height: 24px; background: url(../images/email.png) no-repeat left center; padding-left: 45px;}
+#contact .area p {margin-top: 10vh; height: 24px; line-height: 24px; background: url(../images/email.png) no-repeat left center; padding-left: 45px;}
 
 #contact .area .rewrite {
     position: absolute;
@@ -1266,15 +1265,13 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 
 /* ======= 초기값, active =========== */
-#edith, #main, #act1, #act2, #about, #gnb, #btnOpen, #project, #contact {display: none;}
+#edith, #main, #act1, #act2, #gnb, #about, #btnOpen, #project, #contact {display: none;}
 #edith.active, #main.active, #act1.active, #act2.active, #about.active, #project.active, #contact.active {display: block; opacity: 0;}
 #gnb.active, #btnOpen.active {display: flex; opacity: 0;}
 
 
 #info, #skill, #elsewhere, #person {z-index: -1; display: none;}
 #info.active, #skill.active, #person.active, #elsewhere.active {z-index: 10; display: block; opacity: 0;}
-
-
 
 /* ==== media query ===== */
 @media all and (max-width: 1600px){
@@ -1288,6 +1285,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 @media all and (max-width: 1400px){
     .area {width: 90vw;}
     #act2 .txt5 {left: 8.2vw;}
+    #contact h2 {margin-top: 33vh;}
 }
 
 @media all and (max-width: 1220px){
@@ -1310,6 +1308,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     #intro p {font-size: 3rem;}
     #act1 .txt_area {top: 16vh; left: 50%;}
     #contact #sendEmail {width: 320px;}
+    #contact .area p {margin-top: 8vh;}
 }
 
 
