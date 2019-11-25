@@ -159,11 +159,26 @@ $(document).ready(function(){
         }
     });
 
+
+    var indiL;
+    var indiR;
+    var toolTip;
+    var $toolTip = $('#pagination .tooltip');
+    var indiWid = $("#pagination ul li a").width();
+
     function onAbout(){
         if(!$edith.hasClass("active")) $edith.addClass('active');
 
         $edith.addClass('onInfo').stop().animate({left: '76%', opacity: 1}, 1800, "easeInOutBack", function(){
-            $('#about').addClass("active").stop().animate({opacity: 1}, 800).find('#info').addClass("active").stop().animate({opacity: 1}, 500).siblings().removeClass("active");
+            $('#about').addClass("active").stop().animate({opacity: 1}, 800).find('#info').addClass("active").stop().animate({opacity: 1}, 500, function(){
+                indiL = $("#pagination ul li.on a").position().left;
+                indiR = $('#pagination.area').width() - indiL - indiWid;
+                toolTip = indiL + indiWid/2;
+
+                $toolTip.css({left: toolTip});
+                $('#pagination .indicator').css({left: indiL, right: indiR});
+                console.log(indiL);
+            }).siblings().removeClass("active");
         });
     }
 
@@ -186,22 +201,11 @@ $(document).ready(function(){
 
     //about pagination
     var $pagi = $("#pagination ul li");
-    var pagiIdx = 0;
-
     $pagi.eq(0).addClass('on');
-
-    var $toolTip = $('#pagination .tooltip');
-    var indiWid = $("#pagination ul li a").width();
-    //var indiL = $("#pagination ul li.on a").position().left;
-    var indiL = 1008;
-    var toolTip = indiL + indiWid/2;
-    var indiR = $('#pagination.area').width() - indiL - indiWid;
+    var pagiIdx = 0;
     var nowIndiL;
     var nowIndiR;
-
     
-    $toolTip.css({left: toolTip});
-    $('#pagination .indicator').css({left: indiL, right: indiR});
 
     $pagi.children().on('click', function(e){
         e.preventDefault();
@@ -226,6 +230,15 @@ $(document).ready(function(){
 
         slideAbout();
 
+    });
+
+    $(window).on("resize",function(){   //크기에 변화가 생기면 function을 실행.
+        indiL = $("#pagination ul li.on a").position().left;
+        indiR = $('#pagination.area').width() - indiL - indiWid;
+        $('#pagination .indicator').css({left: indiL, right: indiR});
+
+        toolTip = indiL + indiWid/2;
+        $toolTip.css({left: toolTip});
     });
 
     
@@ -691,7 +704,7 @@ $(document).ready(function(){
                 break;
             case 1:
                 pagiIdx = 0;
-                indiL = 1008;
+                indiL = $("#pagination ul li:eq(0) a").position().left;
                 $toolTip.css({left: toolTip});
                 $('#pagination .indicator').css({left: indiL, right: indiR});
                 $pagi.eq(0).addClass('on').siblings().removeClass('on');
