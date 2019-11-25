@@ -913,7 +913,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 #project_detail .d_normal, #project_detail .d_standard, #project_detail .d_artmining {background-image: url(../images/proj_logo.png);}
 #project_detail > div .btn_projmenu, #project_detail > div img, #project_detail > div .summary, #project_detail > div .btn_more {position: absolute;}
 
-#project_detail > div .area {position: relative; width: 1700px; height: 100%; margin: 0 auto;}
+#project_detail > div .area {position: relative; width: 88.5vw; height: 100%; margin: 0 auto;}
 #project_detail > div .btn_projmenu {right: 60px; bottom: 50px; width: 54px; height: 44px; z-index: 200; background: url(../images/menu_w.png) no-repeat center center;}
 
 #project_detail .d_normal .btn_projmenu, #project_detail .d_standard .btn_projmenu, #project_detail .d_artmining .btn_projmenu {background-image: url(../images/menu_b.png);}

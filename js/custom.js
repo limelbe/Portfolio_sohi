@@ -232,7 +232,7 @@ $(document).ready(function(){
 
     });
 
-    $(window).on("resize",function(){   //크기에 변화가 생기면 function을 실행.
+    $(window).on("resize",function(){
         indiL = $("#pagination ul li.on a").position().left;
         indiR = $('#pagination.area').width() - indiL - indiWid;
         $('#pagination .indicator').css({left: indiL, right: indiR});
