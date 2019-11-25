@@ -642,10 +642,10 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 /* skill */
 #skill .area {position: relative;}
-#skill h2 {font-size: 3.125rem; font-weight: 400; padding-top: 110px; text-align: center;}
-#skill .descr {font-size: 1.125rem; margin-top: 40px; text-align: center;}
+#skill h2 {font-size: 3.125rem; font-weight: 400; padding-top: 11.7vh; text-align: center;}
+#skill .descr {font-size: 1.125rem; margin-top: 4vh; text-align: center;}
 
-.skilltype {display: flex; justify-content: center; flex-direction: row; margin-top: 164px;}
+.skilltype {display: flex; justify-content: center; flex-direction: row; margin-top: 17.4vh;}
 .skilltype.active {justify-content: flex-start;}
 
 .skilltype > li {position: relative; cursor: pointer;}
@@ -665,8 +665,19 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 .skilltype > li .txt_wrap .skill_num strong {font-size: 2.5rem; font-weight: 500; padding-right: 6px;}
 .skilltype > li .txt_wrap p {font-size: 1.25rem; margin: 80px 0 40px; line-height: 1.5; opacity: 0;}
 .skilltype > li .txt_wrap .icons {opacity: 0;}
-.skilltype > li .txt_wrap .icons li {float: left;}
-.skilltype > li .txt_wrap .icons li + li {padding-left: 30px;}
+.skilltype > li .txt_wrap .icons li {float: left; width: 48px; height: 48px; background: no-repeat center top;}
+.skilltype > li .txt_wrap .icons li + li {margin-left: 30px;}
+
+.skilltype .sk_coding .txt_wrap .icons li:nth-child(1) {background-image: url(../images/icon_coding01.png);}
+.skilltype .sk_coding .txt_wrap .icons li:nth-child(2) {background-image: url(../images/icon_coding02.png);}
+.skilltype .sk_coding .txt_wrap .icons li:nth-child(3) {background-image: url(../images/icon_coding03.png);}
+.skilltype .sk_coding .txt_wrap .icons li:nth-child(4) {background-image: url(../images/icon_coding04.png);}
+.skilltype .sk_coding .txt_wrap .icons li:nth-child(5) {background-image: url(../images/icon_coding05.png);}
+
+.skilltype .sk_design .txt_wrap .icons li:nth-child(1) {background-image: url(../images/icon_design01.png);}
+.skilltype .sk_design .txt_wrap .icons li:nth-child(2) {background-image: url(../images/icon_design02.png);}
+.skilltype .sk_design .txt_wrap .icons li:nth-child(3) {background-image: url(../images/icon_design03.png);}
+.skilltype .sk_design .txt_wrap .icons li:nth-child(4) {background-image: url(../images/icon_design04.png); width: 62px;}
 
 .skilltype > li .skill_view {position: absolute; width: 80px; bottom: 26px; left: 50%; margin-left: -40px; color: #fff; font-weight: 300;}
 .skilltype > li.on .skill_view {font-weight: 500;}
@@ -799,7 +810,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 
 /* elsewhere */
 #elsewhere .area {position: relative;}
-#elsewhere h2 {font-size: 3.125rem; font-weight: 400; padding-top: 196px; text-align: center;}
+#elsewhere h2 {font-size: 3.125rem; font-weight: 400; padding-top: 18vh; text-align: center;}
 #elsewhere .descr {font-size: 1.125rem; margin-top: 40px; text-align: center;}
 #elsewhere .site_list {display: flex; justify-content: center; margin-top: 140px;}
 #elsewhere .site_list > li {position: relative; float: left;}
@@ -1211,7 +1222,18 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 }
 #contact button:hover, #contact button:focus {background: #4f28aa; color: #fff;}
 
-#contact .area p {margin-top: 10vh; height: 24px; line-height: 24px; background: url(../images/email.png) no-repeat left center; padding-left: 45px;}
+#contact .area p {
+    position: absolute;
+    bottom: 20px; left: 50%;
+    -webkit-transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+    -o-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    height: 24px;
+    line-height: 24px;
+    background: url(../images/email.png) no-repeat left center;
+    padding-left: 45px;}
 
 #contact .area .rewrite {
     position: absolute;
@@ -1243,11 +1265,11 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     transition: all 0.8s;
 }
 #contact .area.on h2 {
-    -webkit-transform: translateY(260px);
-    -ms-transform: translateY(260px);
-    -moz-transform: translateY(260px);
-    -o-transform: translateY(260px);
-    transform: translateY(260px);
+    -webkit-transform: translateY(28vh);
+    -ms-transform: translateY(28vh);
+    -moz-transform: translateY(28vh);
+    -o-transform: translateY(28vh);
+    transform: translateY(28vh);
     animation: opaAni 1.6s;
 }
 #contact .area.on #sendEmail {opacity: 0;}
@@ -1276,8 +1298,46 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 /* ==== media query ===== */
 @media all and (max-width: 1600px){
     html {font-size: 14px;}
+
     #edith {width: 280px; height: 280px;}
+
     #act2 button {height: 100px;}
+
+    .skilltype {margin-top: 12vh;}
+    .skilltype > li .shape {width: 360px;}
+    .skilltype > li.on .shape {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    
+    .skilltype > li .txt_wrap .type {height: 75px;}
+    .skilltype > li .txt_wrap .skill_num {font-size: 1.15rem;}
+    .skilltype > li .txt_wrap .skill_num strong {font-size: 2.3rem;}
+    .skilltype > li .txt_wrap p {margin: 80px 0 24px;}
+    .skilltype > li.on .txt_wrap p {margin-top: 50px;}
+    .skilltype > li .txt_wrap .icons li + li {margin-left: 16px;}
+    .skilltype .sk_coding .txt_wrap .icons li:nth-child(1) {background-image: url(../images/icon_coding01_40.png);}
+    .skilltype .sk_coding .txt_wrap .icons li:nth-child(2) {background-image: url(../images/icon_coding02_40.png);}
+    .skilltype .sk_coding .txt_wrap .icons li:nth-child(3) {background-image: url(../images/icon_coding03_40.png);}
+    .skilltype .sk_coding .txt_wrap .icons li:nth-child(4) {background-image: url(../images/icon_coding04_40.png);}
+    .skilltype .sk_coding .txt_wrap .icons li:nth-child(5) {background-image: url(../images/icon_coding05_40.png);}
+    .skilltype .sk_design .txt_wrap .icons li:nth-child(1) {background-image: url(../images/icon_design01_40.png);}
+    .skilltype .sk_design .txt_wrap .icons li:nth-child(2) {background-image: url(../images/icon_design02_40.png);}
+    .skilltype .sk_design .txt_wrap .icons li:nth-child(3) {background-image: url(../images/icon_design03_40.png);}
+    .skilltype .sk_design .txt_wrap .icons li:nth-child(4) {background-image: url(../images/icon_design04_40.png); width: 52px;}
+    .skilltype > li.on .skill_view {bottom: -10px;}
+
+    .polygon_wrap {transform: scale(0.8); top: 186px;}
+    
+    #person .txt_box {margin-right: 80px;}
+
+    #elsewhere .site_list > li a {width: 168px;}
+    #elsewhere .site_list > li a .shape {width: 200px; height: 180px;}
+    #elsewhere .site_list > li a img {padding: 40px 0 0 34px;}
+    
     #contact #sendEmail > * {height: 40px;}
     #contact #sendEmail #message {height: 160px;}
 }

@@ -6,32 +6,25 @@ $(document).ready(function(){
     var $touch = $('#fingerPrint .touch');
     var timer=0;
 
-    function Success () {
-        $touch.removeClass('active');
-        $('#intro').stop().fadeOut(800, "easeInOutCubic");
-        $('#main, #edith').addClass('active').stop().delay(500).animate({opacity: 1}, 2800, "easeInOutCubic");
+    function Success() {
+        $touch.addClass('active');
+        $('#intro').stop().delay(500).fadeOut(800, "easeInOutCubic");
+        $('#main, #edith').addClass('active').stop().delay(1000).animate({opacity: 1}, 2800, "easeInOutCubic");
         $('#act1').addClass('active').delay(500).animate({opacity: 1}, 2000, "easeInOutCubic", function(){
+            $touch.removeClass('active');
             edithSay();
         });
     } 
 
-    function holdStart(){
-        $touch.addClass('active');
-        timer = setTimeout(Success, 800);
-    }
-
-    function hlodEnd(){
-        $touch.removeClass('active');
-        clearTimeout(timer);
-    }
-
-    $('#fingerPrint').on('mousedown touchstart', holdStart);
-    $('#fingerPrint').on('mouseup touchend', hlodEnd);
-    $('#fingerPrint').on('keydown', function(e){
+    $('#fingerPrint').on({
+        keydown: function(e){
             var introKey = e.keyCode;
-            if(introKey == 13 || introKey == 32) holdStart();
+            if(introKey == 13 || introKey == 32) Success();
+        },
+        click: function(){
+            Success();
         }
-    );
+    });
 
 
 
@@ -603,7 +596,6 @@ $(document).ready(function(){
 
 
     //contact
-
     $('#sendEmail').on('submit', function(){
         var $umail = $('#email');
         var $umsg = $('#message').val();
