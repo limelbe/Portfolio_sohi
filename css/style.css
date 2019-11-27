@@ -203,7 +203,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     }
 }
 
-.view {
+.inner {
     position: absolute;
     top: 0;
     left: 0;
@@ -215,17 +215,13 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
 }
 
 .plane {
-    width: 37.5%;
-    height: 37.5%;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
-.plane.main {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 37.5%;
+    height: 37.5%;
     margin: auto;
     -webkit-transform: rotateX(60deg) rotateZ(-30deg);
     -ms-transform: rotateX(60deg) rotateZ(-30deg);
@@ -234,8 +230,11 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     transform: rotateX(60deg) rotateZ(-30deg);
     -webkit-animation: rotate 20s infinite linear;
     animation: rotate 20s infinite linear;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
-.plane.main .circle {
+
+.plane .circle {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -249,7 +248,7 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     -moz-box-shadow: 0 0 60px rgba(255,255,255,0.7), inset 0 0 60px rgba(255,255,255,0.7);
     box-shadow: 0 0 60px rgba(255,255,255,0.7), inset 0 0 60px rgba(255,255,255,0.7);
 }
-.plane.main .circle::before, .plane.main .circle::after {
+.plane .circle::before, .plane .circle::after {
     content: "";
     display: block;
     position: absolute;
@@ -268,49 +267,49 @@ section, article {position: absolute; top: 0; left: 0; width: 100%; height: 100%
     -moz-box-shadow: 0 0 60px 2px rgba(255,255,255,0.7);
     box-shadow: 0 0 60px 2px rgba(255,255,255,0.7);
 }
-.plane.main .circle::before {
+.plane .circle::before {
     -webkit-transform: translateZ(-90px);
     -ms-transform: translateZ(-90px);
     -moz-transform: translateZ(-90px);
     -o-transform: translateZ(-90px);
     transform: translateZ(-90px);
 }
-.plane.main .circle::after {
+.plane .circle::after {
     -webkit-transform: translateZ(90px);
     -ms-transform: translateZ(90px);
     -moz-transform: translateZ(90px);
     -o-transform: translateZ(90px);
     transform: translateZ(90px);
 }
-.plane.main .circle:nth-child(1) {
+.plane .circle:nth-child(1) {
     -webkit-transform: rotateZ(72deg) rotateX(63.435deg);
     -ms-transform: rotateZ(72deg) rotateX(63.435deg);
     -moz-transform: rotateZ(72deg) rotateX(63.435deg);
     -o-transform: rotateZ(72deg) rotateX(63.435deg);
     transform: rotateZ(72deg) rotateX(63.435deg);
 }
-.plane.main .circle:nth-child(2) {
+.plane .circle:nth-child(2) {
     -webkit-transform: rotateZ(144deg) rotateX(63.435deg);
     -ms-transform: rotateZ(144deg) rotateX(63.435deg);
     -moz-transform: rotateZ(144deg) rotateX(63.435deg);
     -o-transform: rotateZ(144deg) rotateX(63.435deg);
     transform: rotateZ(144deg) rotateX(63.435deg);
 }
-.plane.main .circle:nth-child(3) {
+.plane .circle:nth-child(3) {
     -webkit-transform: rotateZ(216deg) rotateX(63.435deg);
     -ms-transform: rotateZ(216deg) rotateX(63.435deg);
     -moz-transform: rotateZ(216deg) rotateX(63.435deg);
     -o-transform: rotateZ(216deg) rotateX(63.435deg);
     transform: rotateZ(216deg) rotateX(63.435deg);
 }
-.plane.main .circle:nth-child(4) {
+.plane .circle:nth-child(4) {
     -webkit-transform: rotateZ(288deg) rotateX(63.435deg);
     -ms-transform: rotateZ(288deg) rotateX(63.435deg);
     -moz-transform: rotateZ(288deg) rotateX(63.435deg);
     -o-transform: rotateZ(288deg) rotateX(63.435deg);
     transform: rotateZ(288deg) rotateX(63.435deg);
 }
-.plane.main .circle:nth-child(5) {
+.plane .circle:nth-child(5) {
     -webkit-transform: rotateZ(360deg) rotateX(63.435deg);
     -ms-transform: rotateZ(360deg) rotateX(63.435deg);
     -moz-transform: rotateZ(360deg) rotateX(63.435deg);
